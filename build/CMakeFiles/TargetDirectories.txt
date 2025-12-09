@@ -1,0 +1,16 @@
+/home/mchen/opencl/build/CMakeFiles/edit_cache.dir
+/home/mchen/opencl/build/CMakeFiles/rebuild_cache.dir
+/home/mchen/opencl/build/runtime_mock/CMakeFiles/runtime_mock.dir
+/home/mchen/opencl/build/runtime_mock/CMakeFiles/edit_cache.dir
+/home/mchen/opencl/build/runtime_mock/CMakeFiles/rebuild_cache.dir
+/home/mchen/opencl/build/damocl/CMakeFiles/damocl.dir
+/home/mchen/opencl/build/damocl/CMakeFiles/edit_cache.dir
+/home/mchen/opencl/build/damocl/CMakeFiles/rebuild_cache.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_platform.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_device.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_context.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_commandqueue.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_memory.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_program.dir
+/home/mchen/opencl/build/tests/CMakeFiles/edit_cache.dir
+/home/mchen/opencl/build/tests/CMakeFiles/rebuild_cache.dir

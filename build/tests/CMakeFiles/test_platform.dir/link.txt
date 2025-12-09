@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -g -g -rdynamic CMakeFiles/test_platform.dir/test_platform.cpp.o -o test_platform  -Wl,-rpath,/home/mchen/opencl/damocl/install/lib:/home/mchen/opencl/build/damocl:/home/mchen/opencl/build/runtime_mock /home/mchen/opencl/damocl/install/lib/libOpenCL.so ../damocl/libdamocl.so -Wl,-rpath-link,/home/mchen/opencl/build/runtime_mock 
