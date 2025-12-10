@@ -110,7 +110,7 @@ private:
     uint32_t devId_;
 };
 
-inline OpenclDevice* as_runtime(cl_device_id cl_handle) {
+inline OpenclDevice* as_internal(cl_device_id cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclDevice>(cl_handle);
 }

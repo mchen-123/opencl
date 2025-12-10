@@ -43,7 +43,7 @@ private:
     std::atomic<cl_uint> refcount_{1};
 };
 
-inline OpenclMemory* as_runtime(cl_mem cl_handle) {
+inline OpenclMemory* as_internal(cl_mem cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclMemory>(cl_handle);
 }

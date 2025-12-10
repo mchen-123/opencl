@@ -10,7 +10,7 @@
 #endif
 
 static cl_bool g_initialized = CL_FALSE;
-static cl_platform_id damoPlatform = nullptr;
+cl_platform_id damoPlatform = nullptr;
 
 char* OpenclDevice::getExtensionString() {
     static std::string extStr;
@@ -160,7 +160,7 @@ clGetDeviceInfo(cl_device_id device,
         case CL_DEVICE_MAX_COMPUTE_UNITS:
         {
             int64_t computeUnits = 0;
-            auto oclDev = as_runtime(device);
+            auto oclDev = as_internal(device);
             if (dfDeviceGetAttribute(&computeUnits, DF_DEV_ATTR_PE_COUNT_IN_ONE_DIE, oclDev->get()) != DF_SUCCESS) {
                 return CL_INVALID_VALUE;
             }

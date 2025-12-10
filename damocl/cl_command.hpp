@@ -41,7 +41,7 @@ public:
     std::atomic<cl_uint> refcount_{1};
 };
 
-inline OpenclCommandqueue* as_runtime(cl_command_queue cl_handle) {
+inline OpenclCommandqueue* as_internal(cl_command_queue cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclCommandqueue>(cl_handle);
 }

@@ -29,8 +29,13 @@ int main() {
         return -1;
     }
 
+    cl_context_properties properties[] = {
+        CL_CONTEXT_PLATFORM, (cl_context_properties)platform,
+        0
+    };
+
     context = clCreateContext(
-        NULL,               // properties
+        properties,         // properties
         1,                  // num_devices
         all_devices,        // 两个 GPU
         NULL, NULL,         // 回调

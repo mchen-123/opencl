@@ -17,11 +17,11 @@ clCreateProgramWithBinary(cl_context context,
     if (num_devices == 0 || device_list == nullptr || binaries == nullptr || lengths == nullptr)
         CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
     
-    auto ctx = as_runtime(context);
+    auto ctx = as_internal(context);
     // todo: mulitple devices
     auto program = DF_NEW(OpenclProgram(ctx));
     for (cl_uint i = 0; i < num_devices; ++i) {
-        auto dev = as_runtime(device_list[i]);
+        auto dev = as_internal(device_list[i]);
         if (!is_valid(dev) || !ctx->getContexts()[dev->id()]) {
             if (binary_status) binary_status[i] = CL_INVALID_DEVICE;
             continue;
@@ -50,7 +50,7 @@ clReleaseProgram(cl_program  program) {
     if (!is_valid(program)) {
         return CL_INVALID_PROGRAM;
     }
-    auto oclProgram = as_runtime(program);
+    auto oclProgram = as_internal(program);
     oclProgram->release();
     return CL_SUCCESS;
 }
@@ -78,7 +78,7 @@ clCreateKernel(cl_program program, const char* kernel_name, cl_int* errcode_ret)
         CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
     }
 
-    auto prog = as_runtime(program);
+    auto prog = as_internal(program);
 
     DFFunction kernelFunc;
     if (dfModuleGetFunction(&kernelFunc, prog->getModule(), kernel_name)!= DF_SUCCESS) {
@@ -97,7 +97,7 @@ clReleaseKernel(cl_kernel kernel) {
     if (!is_valid(kernel)) {
         return CL_INVALID_KERNEL;
     }
-    as_runtime(kernel)->release();
+    as_internal(kernel)->release();
     return CL_SUCCESS;
 }
 
@@ -108,7 +108,7 @@ clSetKernelArg(cl_kernel kernel, [[maybe_unused]] cl_uint arg_index, size_t arg_
     }
     // todo: The actual validity check. whether arg_index exceeds the number of arguments for this kernel. 
 
-    auto* oclKernel = as_runtime(kernel);
+    auto* oclKernel = as_internal(kernel);
     if (!oclKernel || oclKernel->type() != OpenclObject::OBJECT_TYPE_KERNEL) {
         return CL_INVALID_KERNEL;
     }
@@ -119,7 +119,7 @@ clSetKernelArg(cl_kernel kernel, [[maybe_unused]] cl_uint arg_index, size_t arg_
     }
     if (arg_size == sizeof(cl_mem) && arg_value) {
         cl_mem mem = *static_cast<const cl_mem*>(arg_value);
-        auto memObj = as_runtime(mem);
+        auto memObj = as_internal(mem);
         if (memObj && OpenclObject::OBJECT_TYPE_MEM_OBJ == memObj->type() ) {
             params->add_mem(memObj);
             return CL_SUCCESS;

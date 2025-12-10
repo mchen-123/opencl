@@ -27,8 +27,8 @@ clEnqueueNDRangeKernel(cl_command_queue command_queue, cl_kernel kernel, [[maybe
     int rvNum = 1;
     uint64_t sharedMemSize = 0;
 
-    auto oclKernel = as_runtime(kernel);
-    auto oclCommandQueue = as_runtime(command_queue);
+    auto oclKernel = as_internal(kernel);
+    auto oclCommandQueue = as_internal(command_queue);
 
     std::vector<void *> kernelParamsArray;
     auto args = oclKernel->parameters();

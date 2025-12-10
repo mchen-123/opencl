@@ -43,14 +43,30 @@ public:
             contexts_ = nullptr;
         }
     }
+
+    void setProperties(cl_context_properties* props) {
+        delete[] properties_;
+        properties_ = props;
+    }
+
+    void setPropertiesSize(cl_int size) {
+        propertiesSize_ = size;
+    }
+
+    const cl_context_properties* properties() const { return properties_; }
+
+    size_t getPropertiesSize() const { return propertiesSize_; }
+    
 private:
     DFContext* contexts_{nullptr};
     cl_uint num_devices_ {0};
+    cl_context_properties* properties_{nullptr};
+    size_t propertiesSize_;
     cl_int total_platform_devices_ {0};
     std::atomic<cl_uint> refcount_{1};
 };
 
-inline OpenclContext* as_runtime(cl_context cl_handle) {
+inline OpenclContext* as_internal(cl_context cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclContext>(cl_handle);
 }

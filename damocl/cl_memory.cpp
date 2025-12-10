@@ -70,8 +70,8 @@ clEnqueueWriteBuffer(cl_command_queue command_queue,
     dieConfig.type = DF_DIE_CONFIG_TYPE_GRID;
     dieConfig.grid = dieGrid;
 
-    // auto queue = as_runtime(command_queue);
-    auto mem = as_runtime(buffer);
+    // auto queue = as_internal(command_queue);
+    auto mem = as_internal(buffer);
     if (dfMemcpyHtoD(mem->get(), offset, &dieConfig, (void* )ptr, size, (DFMemcpyFlag)0) != DF_SUCCESS) {
         return CL_OUT_OF_HOST_MEMORY;
     }
@@ -107,8 +107,8 @@ clEnqueueReadBuffer(cl_command_queue command_queue,
     dieConfig.type = DF_DIE_CONFIG_TYPE_GRID;
     dieConfig.grid = dieGrid;
 
-    // auto queue = as_runtime(command_queue);
-    auto mem = as_runtime(buffer);
+    // auto queue = as_internal(command_queue);
+    auto mem = as_internal(buffer);
     if (dfMemcpyDtoH(ptr, mem->get(), offset, &dieConfig, size) != DF_SUCCESS) {
         return CL_OUT_OF_HOST_MEMORY;
     }
@@ -121,7 +121,7 @@ clReleaseMemObject(cl_mem memobj) {
     if (!is_valid(memobj)) {
         return CL_INVALID_MEM_OBJECT;
     }
-    auto oclMem = as_runtime(memobj);
+    auto oclMem = as_internal(memobj);
     oclMem->release();
     return CL_SUCCESS;
 }

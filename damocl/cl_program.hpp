@@ -52,7 +52,7 @@ private:
     std::atomic<cl_uint> refcount_{1};
 };
 
-inline OpenclProgram* as_runtime(cl_program cl_handle) {
+inline OpenclProgram* as_internal(cl_program cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclProgram>(cl_handle);
 }
@@ -126,7 +126,7 @@ private:
     std::atomic<cl_uint> refcount_{1};
 };
 
-inline OpenclKernel* as_runtime(cl_kernel cl_handle) {
+inline OpenclKernel* as_internal(cl_kernel cl_handle) {
     if (!cl_handle) return nullptr;
     return ICDDispatchedObject::fromHandle<OpenclKernel>(cl_handle);
 }

@@ -69,7 +69,7 @@ extern "C" cl_int cliIcdDispatchTableCreate()
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL               );
     ICD_DISPATCH_TABLE_ENTRY ( clReleaseContext              );
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       );
+    ICD_DISPATCH_TABLE_ENTRY ( clGetContextInfo              );
     ICD_DISPATCH_TABLE_ENTRY ( NULL          );
     ICD_DISPATCH_TABLE_ENTRY ( NULL         );
     ICD_DISPATCH_TABLE_ENTRY ( clReleaseCommandQueue         );

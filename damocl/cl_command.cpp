@@ -18,8 +18,8 @@ clCreateCommandQueueWithProperties(cl_context context,
         CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_DEVICE, errcode_ret, cl_queue)
     }
 
-    auto ctx = as_runtime(context);
-    auto dev = as_runtime(device);
+    auto ctx = as_internal(context);
+    auto dev = as_internal(device);
     dfCtxPushCurrent(ctx->getContexts()[dev->id()]);
     if (dfStreamCreate(&stream, 0) != DF_SUCCESS) {
         CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, cl_queue)
@@ -40,7 +40,7 @@ clFinish(cl_command_queue command_queue) {
     if (!is_valid(command_queue)) {
         return CL_INVALID_COMMAND_QUEUE;
     }
-    auto oclStream = as_runtime(command_queue);
+    auto oclStream = as_internal(command_queue);
     if (dfStreamSynchronize(oclStream->get()) != DF_SUCCESS) {
         return CL_INVALID_VALUE;
     }
@@ -52,7 +52,7 @@ clReleaseCommandQueue(cl_command_queue command_queue) {
     if (!is_valid(command_queue)) {
         return CL_INVALID_COMMAND_QUEUE;
     }
-    auto oclQueue = as_runtime(command_queue);
+    auto oclQueue = as_internal(command_queue);
     oclQueue->release();
     return CL_SUCCESS;
 }
