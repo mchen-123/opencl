@@ -7,20 +7,7 @@
 #include <shared_mutex>
 
 #include "cl_icd_structs.hpp"
-#include "cl_object.hpp"
 
-#define CL_PLATFORM_ICD_SUFFIX_KHR                  0x0920
-
-struct _cl_platform_id
-{
-    CL_OBJECT_BODY;
-    const char *profile;
-    const char *version;
-    const char *name;
-    const char *vendor;
-    const char *extensions;
-    const char *suffix;
-};
 
 enum OclExtensions {
   ClKhrFp64 = 0,
@@ -91,28 +78,5 @@ static constexpr const char* OclExtensionsString[] = {"cl_khr_fp64 ",
                                             "cl_amd_copy_buffer_p2p ",
                                             "cl_amd_assembly_program ",
                                             NULL};
-
-class OpenclDevice : public OpenclObject {
-public:
-    using cl_type = cl_device_id;
-    explicit OpenclDevice(DFDevice d, uint32_t id) : device_(d), devId_(id) {};
-
-    DFDevice get() const { return device_; }
-    
-    uint32_t id() const { return devId_; }
-
-    static char* getExtensionString();
-
-    virtual ObjectType type() const override { return OBJECT_TYPE_DEVICE; }
-
-private:
-    DFDevice device_;
-    uint32_t devId_;
-};
-
-inline OpenclDevice* as_internal(cl_device_id cl_handle) {
-    if (!cl_handle) return nullptr;
-    return ICDDispatchedObject::fromHandle<OpenclDevice>(cl_handle);
-}
 
 #endif /*_CL_DEVICE_HPP_*/

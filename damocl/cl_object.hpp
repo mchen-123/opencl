@@ -1,72 +1,57 @@
 #ifndef _CL_OBJECT_HPP_
 #define _CL_OBJECT_HPP_
 
-#include <CL/cl.h>
-#include <CL/cl_icd.h>
-#include <memory>
-#include <atomic>
-#include <cstring>
-#include <iostream>
+// extern CLIicdDispatchTable *g_icd_dispatchTable;
 
-// Need to rename all CL API functions to prevent ICD loader functions calling
-// themselves via the dispatch table. Include this before cl headers.
-#include "cl_rename_api.hpp"
+// class ICDDispatchedObject {
+// protected:
+//     const CLIicdDispatchTable* const dispatch_{nullptr};
+//     ICDDispatchedObject() : dispatch_(g_icd_dispatchTable) {}
 
-#include "runtime_mock.hpp"
-#include "cl_icd_structs.hpp"
-#include "cl_helper.hpp"
+// public:
 
-extern CLIicdDispatchTable *g_icd_dispatchTable;
+//     void* handle() { return static_cast<ICDDispatchedObject*>(this); }
 
-class ICDDispatchedObject {
-protected:
-    const CLIicdDispatchTable* const dispatch_{nullptr};
-    ICDDispatchedObject() : dispatch_(g_icd_dispatchTable) {}
+//     template <typename T> static T* fromHandle(void* handle) {
+//         return static_cast<T*>(reinterpret_cast<ICDDispatchedObject*>(handle));
+//     }
+//     template <typename T> static const T* fromHandle(const void* handle) {
+//         return static_cast<const T*>(reinterpret_cast<const ICDDispatchedObject*>(handle));
+//     }
+// };
 
-public:
+// /// @brief raw pointer → cl_xxx
+// template<typename T>
+// inline auto as_cl(T* obj) noexcept {
+//     static_assert(std::is_base_of_v<ICDDispatchedObject, T>,
+//         "T must inherit from ICDDispatchedObject");
+//     return obj ? static_cast<typename T::cl_type>(obj->handle()) : nullptr;
+// }
 
-    void* handle() { return static_cast<ICDDispatchedObject*>(this); }
+// /// @brief shared_ptr → cl_xxx
+// template<typename T>
+// inline auto as_cl(const std::shared_ptr<T>& obj) noexcept {
+//     static_assert(std::is_base_of_v<ICDDispatchedObject, T>,
+//         "T must inherit from ICDDispatchedObject");
+//     return obj ? static_cast<typename T::cl_type>(obj->handle()) : nullptr;
+// }
 
-    template <typename T> static T* fromHandle(void* handle) {
-        return static_cast<T*>(reinterpret_cast<ICDDispatchedObject*>(handle));
-    }
-    template <typename T> static const T* fromHandle(const void* handle) {
-        return static_cast<const T*>(reinterpret_cast<const ICDDispatchedObject*>(handle));
-    }
-};
+// class OpenclObject : public ICDDispatchedObject {
+// public:
+//     enum ObjectType {
+//         OBJECT_TYPE_CONTEXT = 0,
+//         OBJECT_TYPE_DEVICE,
+//         OBJECT_TYPE_MEM_OBJ,
+//         OBJECT_TYPE_KERNEL,
+//         OBJECT_TYPE_COMMAND_QUEUE,
+//         OBJECT_TYPE_PROGRAM,
+//         OBJECT_TYPE_SAMPLER,
+//         OBJECT_TYPE_EVENT,
+//     };
+//     virtual ObjectType objType() const = 0;
 
-/// @brief raw pointer → cl_xxx
-template<typename T>
-inline auto as_cl(T* obj) noexcept {
-    static_assert(std::is_base_of_v<ICDDispatchedObject, T>,
-        "T must inherit from ICDDispatchedObject");
-    return obj ? static_cast<typename T::cl_type>(obj->handle()) : nullptr;
-}
-
-/// @brief shared_ptr → cl_xxx
-template<typename T>
-inline auto as_cl(const std::shared_ptr<T>& obj) noexcept {
-    static_assert(std::is_base_of_v<ICDDispatchedObject, T>,
-        "T must inherit from ICDDispatchedObject");
-    return obj ? static_cast<typename T::cl_type>(obj->handle()) : nullptr;
-}
-
-class OpenclObject : public ICDDispatchedObject {
-public:
-    enum ObjectType {
-        OBJECT_TYPE_CONTEXT = 0,
-        OBJECT_TYPE_DEVICE,
-        OBJECT_TYPE_MEM_OBJ,
-        OBJECT_TYPE_KERNEL,
-        OBJECT_TYPE_COMMAND_QUEUE,
-        OBJECT_TYPE_PROGRAM,
-        OBJECT_TYPE_SAMPLER,
-        OBJECT_TYPE_EVENT,
-    };
-    virtual ObjectType type() const = 0;
-
-    virtual ~OpenclObject() = default;
-};
+//     virtual ~OpenclObject() = default;
+// };
 
 #endif // CL_OBJECT_HPP
 

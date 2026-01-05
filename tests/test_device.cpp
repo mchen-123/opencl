@@ -48,15 +48,6 @@ int main() {
         printf("不是 GPU 类型 = 0x%llx\n", (unsigned long long)device_type);
     }
 
-    // 5. 打印具体类型（可选）
-    printf("设备类型: ");
-    if (device_type & CL_DEVICE_TYPE_GPU)        printf("GPU ");
-    if (device_type & CL_DEVICE_TYPE_CPU)        printf("CPU ");
-    if (device_type & CL_DEVICE_TYPE_ACCELERATOR) printf("加速器 ");
-    if (device_type & CL_DEVICE_TYPE_CUSTOM)     printf("自定义 ");
-    if (device_type == CL_DEVICE_TYPE_DEFAULT)   printf("(默认) ");
-    printf("\n");
-
     // 6. 查询设备的供应商 ID
     err = clGetDeviceInfo(
         device,
@@ -95,15 +86,13 @@ int main() {
         printf("Error: clGetDeviceInfo failed: %d\n", err);
     }
 
-    cl_device_fp_config config;
-    clGetDeviceInfo(device, CL_DEVICE_SINGLE_FP_CONFIG, sizeof(config), &config, NULL);
-    std::cout << "Single FP Config: 0x" << std::hex << config << std::endl;
-
-    char extensions[4096];
-	clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, sizeof(extensions), extensions, NULL);
-    printf("Extensions: %s\n", extensions);
-
-    free(vendor);
+    cl_platform_id queried = nullptr;
+    size_t sz = 0;
+    err = clGetDeviceInfo(device, CL_DEVICE_PLATFORM,
+                                 sizeof(queried), &queried, &sz);
+    printf("err=%d  size=%zu  queried=%p  expected=%p  %s\n",
+           err, sz, queried, platform,
+           (queried == platform && err == CL_SUCCESS) ? "PASS" : "FAIL");
 
     return 0;
 }
