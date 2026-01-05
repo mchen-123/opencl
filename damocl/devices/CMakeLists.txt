@@ -27,7 +27,6 @@ target_include_directories(dfcl-device PRIVATE
 target_link_libraries(dfcl-device PRIVATE
     /home/mchen/opencl/damocl/install/lib/libOpenCL.so
     runtime_mock
-    dl
 )
 
 target_link_options(dfcl-device PRIVATE -Wl,--export-dynamic)

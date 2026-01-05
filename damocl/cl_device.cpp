@@ -1,7 +1,7 @@
-#include "cl_device.hpp"
+#include <sstream>
+
 #include "devices.hpp"
 #include "dfcl_cl.hpp"
-#include <sstream>
 
 #ifndef CL_USE_DEPRECATED_OPENCL_1_0_APIS
 #define CL_USE_DEPRECATED_OPENCL_1_0_APIS
@@ -54,7 +54,7 @@ clGetDeviceInfo(cl_device_id device,
                     cl_device_info param_name,
                     size_t param_value_size,
                     void* param_value,
-                    size_t* param_value_size_ret) 
+                    size_t* param_value_size_ret) CL_API_SUFFIX__VERSION_1_0
 {
     cl_int result = CL_SUCCESS;
     if (!is_valid(device))

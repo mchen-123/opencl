@@ -90,7 +90,7 @@ int main() {
     size_t sz = 0;
     err = clGetDeviceInfo(device, CL_DEVICE_PLATFORM,
                                  sizeof(queried), &queried, &sz);
-    printf("err=%d  size=%zu  queried=%p  expected=%p  %s\n",
+    printf("err=%d size=%zu queried=%p expected=%p  %s\n",
            err, sz, queried, platform,
            (queried == platform && err == CL_SUCCESS) ? "PASS" : "FAIL");
 

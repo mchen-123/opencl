@@ -60,33 +60,15 @@ struct _cl_device_id
     const char *version;
 
     cl_bool image_support;
-    // DFDevice get() const { return device_; }
-    
-    // uint32_t id() const { return devId_; }
-
-    // static char* getExtensionString();
-
-    // virtual ObjectType objType() const override { return OBJECT_TYPE_DEVICE; }
-
-    std::atomic<_cl_device_id *> next_ = nullptr;
 
     cl_bool available;
 
     /* Device specific data needed for internal devicee functions */
     void *data;
 
+    std::atomic<_cl_device_id *> next = nullptr;
+
 };
-// class _cl_device_id : public OpenclObject {
-// public:
-//     using cl_type = cl_device_id;
-
-
-// };
-
-// inline _cl_device_id* as_internal(cl_device_id cl_handle) {
-//     if (!cl_handle) return nullptr;
-//     return ICDDispatchedObject::fromHandle<_cl_device_id>(cl_handle);
-// }
 
 struct dfcl_device_ops {
     const char *device_name;

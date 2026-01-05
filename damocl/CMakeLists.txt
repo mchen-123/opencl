@@ -20,8 +20,8 @@ add_library(damocl SHARED
     cl_ext.cpp
     cl_platform.cpp
     cl_device.cpp
+    cl_context.cpp
 
-    # cl_context.cpp
     # cl_command.cpp
     # cl_memory.cpp
     # cl_program.cpp
