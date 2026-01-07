@@ -12,17 +12,17 @@ clCreateCommandQueueWithProperties(cl_context context,
     DFStream stream = nullptr;
                            
     if (!is_valid(context)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, cl_queue)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, cl_queue)
     }
     if (!is_valid(device)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_DEVICE, errcode_ret, cl_queue)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_DEVICE, errcode_ret, cl_queue)
     }
 
     auto ctx = as_internal(context);
     auto dev = as_internal(device);
     dfCtxPushCurrent(ctx->getContexts()[dev->id()]);
     if (dfStreamCreate(&stream, 0) != DF_SUCCESS) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, cl_queue)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, cl_queue)
     }
     if (errcode_ret)
         *errcode_ret = result;
@@ -30,9 +30,9 @@ clCreateCommandQueueWithProperties(cl_context context,
     auto oclQueue = DF_NEW(OpenclCommandqueue(stream));
     if (!oclQueue) {
         dfStreamDestroy(stream);
-        CL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, cl_queue)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, cl_queue)
     }
-    CL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclQueue))
+    DFCL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclQueue))
 }
 
 extern "C" CL_API_ENTRY cl_int CL_API_CALL

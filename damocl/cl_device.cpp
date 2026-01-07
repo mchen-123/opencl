@@ -63,86 +63,123 @@ clGetDeviceInfo(cl_device_id device,
     switch (param_name) {
         case CL_DEVICE_IMAGE_SUPPORT:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_bool, device->image_support, result);
             break;
         }
         case CL_DEVICE_TYPE:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_device_type, device->type, result);
             break;
         }
         case CL_DEVICE_VENDOR_ID:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_uint, device->vendor_id, result);
             break;
         }
         case CL_DEVICE_MAX_COMPUTE_UNITS:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_uint, device->max_compute_units, result);
             break;
         }
         case CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_uint, device->max_work_item_dimensions, result);
             break;
         }
         case CL_DEVICE_VENDOR:
         {
             const char *vendor = device->vendor;
-            CL_SET_RETURN_PTR(
+            DFCL_SET_RETURN_PTR(
                 param_value_size, param_value, param_value_size_ret, vendor, strlen(vendor) + 1, result);
             break;
         }
         case CL_DEVICE_NAME:
         {
             const char *name = device->long_name;
-            CL_SET_RETURN_PTR(
+            DFCL_SET_RETURN_PTR(
                 param_value_size, param_value, param_value_size_ret, name, strlen(name) + 1, result);
             break;
         }
         case CL_DEVICE_VERSION:
         {
             const char *version = device->version;
-            CL_SET_RETURN_PTR(
+            DFCL_SET_RETURN_PTR(
                 param_value_size, param_value, param_value_size_ret, version, strlen(version) + 1, result);
             break;
         }
         case CL_DEVICE_OPENCL_C_VERSION:
         {
             const char ch[] = "OpenCL C 3.0";
-            CL_SET_RETURN_PTR(
+            DFCL_SET_RETURN_PTR(
                 param_value_size, param_value, param_value_size_ret, ch, strlen(ch) + 1, result);
             break;
         }
         case CL_DEVICE_SINGLE_FP_CONFIG:
         {
-            CL_SET_RETURN_VAL(
+            DFCL_SET_RETURN_VAL(
                 param_value_size, param_value, param_value_size_ret, cl_device_fp_config, device->single_fp_config, result);
             break;
         }
         case CL_DEVICE_PROFILE:
         {
             const char *profile = device->profile;
-            CL_SET_RETURN_PTR(
+            DFCL_SET_RETURN_PTR(
                 param_value_size, param_value, param_value_size_ret, profile, strlen(profile) + 1, result);
             break;
         }
         case CL_DEVICE_ADDRESS_BITS:
         {
-            CL_SET_RETURN_VAL(param_value_size, param_value, param_value_size_ret, cl_uint, device->address_bits, result);
+            DFCL_SET_RETURN_VAL(param_value_size, param_value, param_value_size_ret, cl_uint, device->address_bits, result);
             break;
         }
         case CL_DEVICE_PLATFORM:
         {
-            CL_SET_RETURN_PTR(param_value_size, param_value, param_value_size_ret, &damoPlatform, sizeof(cl_platform_id), result);
+            DFCL_SET_RETURN_PTR(param_value_size, param_value, param_value_size_ret, &damoPlatform, sizeof(cl_platform_id), result);
             break;
         }
         default: result = CL_INVALID_VALUE;
     }
     return result;
+}
+
+extern "C" CL_API_ENTRY cl_int CL_API_CALL
+clRetainDevice(cl_device_id device) CL_API_SUFFIX__VERSION_1_2
+{
+    if (device == nullptr)
+        return CL_INVALID_DEVICE;
+    if (device->available != CL_TRUE) {
+        return CL_DEVICE_NOT_AVAILABLE;
+    }
+
+    if (device->parent_device == nullptr) {
+        return CL_SUCCESS;
+    }
+
+    dfcl_retain_object(device);
+    return CL_SUCCESS;
+}
+
+extern "C" CL_API_ENTRY cl_int CL_API_CALL
+clReleaseDevice(cl_device_id device) CL_API_SUFFIX__VERSION_1_2
+{
+    if (device == nullptr)
+        return CL_INVALID_DEVICE;
+    
+    if (device->parent_device == nullptr) {
+        return CL_SUCCESS;
+    }
+
+    int new_refcount = dfcl_release_object(device);
+    if (new_refcount == 0) {
+        // todo: release device
+    }
+
+
+    dfcl_release_object(device);
+    return CL_SUCCESS;
 }

@@ -18,6 +18,7 @@ add_compile_options(-Wall -Wextra -Werror)
 add_library(damocl SHARED
     cl_icd.cpp
     cl_ext.cpp
+    dfcl_config.cpp
     cl_platform.cpp
     cl_device.cpp
     cl_context.cpp

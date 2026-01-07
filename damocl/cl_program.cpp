@@ -12,10 +12,10 @@ clCreateProgramWithBinary(cl_context context,
     cl_int result = CL_SUCCESS;
                                 
     if (!is_valid(context)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, nullptr)
     }
     if (num_devices == 0 || device_list == nullptr || binaries == nullptr || lengths == nullptr)
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
     
     auto ctx = as_internal(context);
     // todo: mulitple devices
@@ -34,7 +34,7 @@ clCreateProgramWithBinary(cl_context context,
         // todo：use dfModuleLoadData instread of dfModuleLoad
         if (dfModuleLoad(&module, KERNEL_EFL_FILE) != DF_SUCCESS) {
             if (binary_status != nullptr) binary_status[i] = CL_INVALID_BINARY;
-            CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_BINARY, errcode_ret, nullptr)
+            DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_BINARY, errcode_ret, nullptr)
         }
         program->setModule(module);
         if (binary_status != nullptr) {
@@ -42,7 +42,7 @@ clCreateProgramWithBinary(cl_context context,
         }
     }
 
-    CL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(program))
+    DFCL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(program))
 }
 
 extern "C" CL_API_ENTRY cl_int CL_API_CALL
@@ -71,25 +71,25 @@ clCreateKernel(cl_program program, const char* kernel_name, cl_int* errcode_ret)
     cl_int result = CL_SUCCESS;
 
     if(!is_valid(program)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_PROGRAM, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_PROGRAM, errcode_ret, nullptr)
     }
     
     if (kernel_name == nullptr) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, nullptr)
     }
 
     auto prog = as_internal(program);
 
     DFFunction kernelFunc;
     if (dfModuleGetFunction(&kernelFunc, prog->getModule(), kernel_name)!= DF_SUCCESS) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_KERNEL_NAME, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_KERNEL_NAME, errcode_ret, nullptr)
     };
 
     auto oclKernel = DF_NEW(OpenclKernel(prog, kernel_name, kernelFunc));
     if (oclKernel == nullptr) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, nullptr)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, nullptr)
     }
-    CL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclKernel))
+    DFCL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclKernel))
 }
 
 extern "C" CL_API_ENTRY cl_int CL_API_CALL

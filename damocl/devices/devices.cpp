@@ -2,9 +2,12 @@
 #include <mutex>
 
 #include "devices.hpp"
-#include "dfcl_debug.hpp"
+#include "cl_helper.hpp"
+#include "dfcl_config.hpp"
 
-std::mutex dfcl_init_lock;
+static std::mutex dfcl_init_lock;
+
+int dfcl_offline_compile = 0;
 
 static bool first_init_done = false;
 static bool init_in_progress = false;
@@ -26,19 +29,6 @@ static uint64_t device_count;
  * used and modified during init, to index devices present since launch. May
  * also used and modified when devices are dynamically added. */
 static uint64_t dev_index;
-
-extern pthread_mutex_t dfcl_context_handling_lock; 
-extern std::once_flag  dfcl_context_lock_init_flag;
-
-inline void init_context_handling_lock() {
-    std::call_once(dfcl_context_lock_init_flag, [] {
-        pthread_mutexattr_t attrs;
-        pthread_mutexattr_init(&attrs);
-        pthread_mutexattr_settype(&attrs, PTHREAD_MUTEX_ADAPTIVE_NP);
-        pthread_mutex_init(&dfcl_context_handling_lock, &attrs);
-        pthread_mutexattr_destroy(&attrs);
-    });
-}
 
 inline void ll_append_atomic(std::atomic<_cl_device_id *>& head, _cl_device_id *new_node) {
     assert(new_node != nullptr);
@@ -92,9 +82,9 @@ dfcl_init_devices(cl_platform_id platform) {
         // 第二次及以后：直接返回当前状态; todo: 需要重新探测设备
         init_in_progress = false;
         return dfcl_num_devices > 0  ? CL_SUCCESS : CL_DEVICE_NOT_FOUND;
-    } else {
-        init_context_handling_lock();
     }
+
+    dfcl_offline_compile = dfcl_get_bool_option("OFFLINE_COMPILE", 0);
 
     std::string deviceLibrary = get_dfcl_device_lib_path(true);
     dfcl_device_handle = dfcl_dynlib_open(deviceLibrary, 1, 0);
@@ -150,7 +140,6 @@ ERROR:
 uint32_t
 dfcl_get_device_type_count(cl_device_type device_type) {
     uint32_t count = 0;
-    cl_device_id device;
 
     if (device_type == CL_DEVICE_TYPE_DEFAULT) {
         dfcl_devices_list.load(std::memory_order_relaxed) ? 1 : 0;
@@ -160,9 +149,9 @@ dfcl_get_device_type_count(cl_device_type device_type) {
         dev != nullptr; 
         dev = dev->next.load(std::memory_order_seq_cst)) 
     {
-        if (dev->available == CL_FALSE) {
+        if (!dfcl_offline_compile && (dev->available == CL_FALSE)) {
             continue;
-        }    
+        }
 
         if (dev->type & device_type) {
             ++count;
@@ -179,7 +168,7 @@ dfcl_get_devices(cl_device_type device_type, cl_device_id *devices, uint32_t num
         dev != nullptr; 
         dev = dev->next.load(std::memory_order_acquire)) 
     {
-        if (dev->available == CL_FALSE) {
+        if (!dfcl_offline_compile && (dev->available == CL_FALSE)) {
             continue;
         }
 

@@ -65,10 +65,10 @@ extern "C" cl_int cliIcdDispatchTableCreate()
     ICD_DISPATCH_TABLE_ENTRY ( clGetPlatformInfo             );
     ICD_DISPATCH_TABLE_ENTRY ( clGetDeviceIDs                );
     ICD_DISPATCH_TABLE_ENTRY ( clGetDeviceInfo               );
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       ); // ICD_DISPATCH_TABLE_ENTRY ( clCreateContext               ); 
+    ICD_DISPATCH_TABLE_ENTRY ( clCreateContext               ); 
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL               );
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       ); // ICD_DISPATCH_TABLE_ENTRY ( clReleaseContext              );
+    ICD_DISPATCH_TABLE_ENTRY ( clReleaseContext              );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       ); // ICD_DISPATCH_TABLE_ENTRY ( clGetContextInfo              );
     ICD_DISPATCH_TABLE_ENTRY ( NULL          );
     ICD_DISPATCH_TABLE_ENTRY ( NULL         );
@@ -180,8 +180,8 @@ extern "C" cl_int cliIcdDispatchTableCreate()
 
     /* OpenCL 1.2 */
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       );
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       );
+    ICD_DISPATCH_TABLE_ENTRY ( clRetainDevice       );
+    ICD_DISPATCH_TABLE_ENTRY ( clReleaseDevice      );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );

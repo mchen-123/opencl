@@ -57,6 +57,7 @@ dfcl_dfruntime_init(unsigned int dev_id, _cl_device_id *dev) {
     dev->max_work_item_dimensions = 3;
     dev->image_support = CL_FALSE;
     dev->profile = "FULL_PROFILE";
+    dev->parent_device = nullptr;
 
     dfcl_dfruntime_device_data_t *data = (dfcl_dfruntime_device_data_t *)calloc(1, sizeof(dfcl_dfruntime_device_data_t));
     result = dfDeviceGet(&data->device, dev_id);

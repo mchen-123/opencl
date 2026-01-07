@@ -15,29 +15,29 @@ clCreateBuffer(cl_context context, cl_mem_flags flags, size_t size, void* host_p
     dieConfig.grid = dieGrid;
 
     if (!is_valid(context)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_CONTEXT, errcode_ret, mem)
     }
     if (flags &
         ~(CL_MEM_USE_HOST_PTR | CL_MEM_COPY_HOST_PTR | CL_MEM_ALLOC_HOST_PTR | CL_MEM_READ_ONLY | CL_MEM_WRITE_ONLY |
              CL_MEM_READ_WRITE | CL_MEM_HOST_WRITE_ONLY | CL_MEM_HOST_READ_ONLY | CL_MEM_HOST_NO_ACCESS)) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_VALUE, errcode_ret, mem)
     }
     if (!is_valid(host_ptr) && (flags & (CL_MEM_USE_HOST_PTR | CL_MEM_COPY_HOST_PTR)))
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_HOST_PTR, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_HOST_PTR, errcode_ret, mem)
     if (size == 0)
-        CL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_BUFFER_SIZE, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_INVALID_BUFFER_SIZE, errcode_ret, mem)
 
     if (dfMemAlloc(&dptr, &dieConfig, size) != DF_SUCCESS) {
-        CL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, mem)
     }
 
     auto oclMem = DF_NEW(OpenclMemory(dptr));
     if (!oclMem) {
         dfMemFree(dptr);
-        CL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, mem)
+        DFCL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, mem)
     }
 
-    CL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclMem)) 
+    DFCL_SET_FUNCTION_VALUE_RETURN(CL_SUCCESS, errcode_ret, as_cl(oclMem)) 
 }
 
 // queue 可以用户异步拷贝, todo: 异步拷贝的实现
