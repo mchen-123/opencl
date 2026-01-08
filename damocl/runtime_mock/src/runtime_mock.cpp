@@ -104,3 +104,7 @@ DFResult dfLaunchKernel(DFFunction f, const DFDieConfig *dieCfg, uint32_t blocks
                         void **kernelParams, void **extra) {
   return DF_SUCCESS;
 }
+
+DFResult dfCtxSetCurrent(DFContext ctx) {
+  return DF_SUCCESS;
+}

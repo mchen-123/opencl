@@ -60,4 +60,6 @@ DFResult dfLaunchKernel(DFFunction f, const DFDieConfig *dieCfg, uint32_t blocks
                         uint32_t threadsPerBlock, uint64_t sharedMemSize, DFStream hStream,
                         void **kernelParams, void **extra);
 
+DFResult dfCtxSetCurrent(DFContext ctx);
+
 #endif // RUNTIME_MOCK_HPP

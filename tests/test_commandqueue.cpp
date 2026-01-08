@@ -31,15 +31,8 @@ int main() {
     }
     std::cout << "成功创建GPU上下文" << std::endl;
 
-    // 定义队列属性（OpenCL 3.0兼容）
-#ifdef CL_VERSION_3_0
-    cl_properties properties[] = { 0 };
-#else
-    cl_queue_properties properties[] = { 0 };
-#endif
-
     // 创建命令队列（stream）
-    command_queue = clCreateCommandQueueWithProperties(context, device, properties, &err);
+    command_queue = clCreateCommandQueue(context, device, 0, &err);
     if (err != CL_SUCCESS) {
         std::cerr << "错误：创建命令队列失败" << std::endl;
         clReleaseContext(context);

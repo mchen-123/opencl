@@ -11,6 +11,7 @@
 #include <iostream>
 #include <mutex>
 #include <cassert>
+#include <list>
 
 // Need to rename all CL API functions to prevent ICD loader functions calling
 // themselves via the dispatch table. Include this before cl headers.
@@ -21,9 +22,46 @@
 #include "cl_helper.hpp"
 #include "cl_icd_structs.hpp"
 
-#define CL_OBJECT_COMMON_FIELDS \
-    std::atomic<int> refcount{0}; \
-    mutable std::mutex mutex
+/* dfcl specific flag, for "hidden" default queues allocated in each context */
+#define CL_QUEUE_HIDDEN (1 << 10)
+
+class DfclObject {
+public:
+    CL_OBJECT_BODY;
+    mutable std::atomic<int> refcount{0};
+    uint64_t id;
+    mutable std::mutex mutex;
+
+public:
+    // 线程安全的引用计数操作
+    int retain() const {
+        return refcount.fetch_add(1, std::memory_order_relaxed);
+    }
+
+    int release() const {
+        int old = refcount.fetch_sub(1, std::memory_order_acq_rel);
+        return old - 1;
+    }
+
+    // 获取当前引用计数（用于调试）
+    int getRefCount() const {
+        return refcount.load(std::memory_order_relaxed);
+    }
+
+    // 锁守卫
+    void lock() const   { mutex.lock(); }
+    void unlock() const { mutex.unlock(); }
+
+    // 方便的 RAII 锁
+    class LockGuard {
+    public:
+        explicit LockGuard(const DfclObject* obj) : obj(obj) { obj->lock(); }
+        ~LockGuard() { obj->unlock(); }
+    private:
+        const DfclObject* obj;
+    };
+};
+
 
 struct _cl_platform_id
 {
@@ -36,10 +74,8 @@ struct _cl_platform_id
     const char *suffix;
 };
 
-struct _cl_device_id
+struct _cl_device_id : public DfclObject
 {
-    CL_OBJECT_BODY;
-    CL_OBJECT_COMMON_FIELDS;
     /* queries */
     cl_device_type type;
     cl_uint vendor_id;
@@ -75,13 +111,15 @@ struct _cl_device_id
     /* Device specific data needed for internal devicee functions */
     void *data;
 
+    /* OpenCL 2.0 properties */
+    cl_command_queue_properties on_dev_queue_props;
+    cl_command_queue_properties on_host_queue_props;
+
     std::atomic<_cl_device_id *> next = nullptr;
 };
 
-struct _cl_context
+struct _cl_context : public DfclObject
 {
-    CL_OBJECT_BODY;
-    CL_OBJECT_COMMON_FIELDS;
     /* queries */
     cl_device_id *devices;
     cl_context_properties *properties;
@@ -103,10 +141,32 @@ struct _cl_context
      * and the clEnqueueX only gives us one (on the destination
      * device). */
     cl_command_queue *default_queues;
+
+    /* l*/
+    std::list<cl_command_queue> command_queues;
+};
+
+struct _cl_command_queue  : public DfclObject {
+    /* queries */
+    cl_context context;
+    cl_device_id device;
+    cl_command_queue_properties properties;
+
+    /* Number of unfinished command enqueued. */
+    unsigned long command_count;
+    /* device specific data */
+    void *data;
 };
 
 struct dfcl_device_ops {
     const char *device_name;
+    /**
+     * Called when clFlush is called.
+     *
+     * This function ensures that
+     * commands will be eventually executed. It is up to the device what happens
+     * here, if anything. See basic and pthread for reference.*/
+    void (*flush) (cl_device_id device, cl_command_queue cq);
 
     /**
      * Detects & returns the number of available devices the driver finds on the
@@ -121,29 +181,24 @@ struct dfcl_device_ops {
      */
     cl_int (*init)(unsigned int i, _cl_device_id *device);
 
+
+    /** Optional: If the driver needs to use hardware resources
+     * for command queues, it should use these callbacks */
+    int (*init_queue) (cl_device_id device, cl_command_queue command_queue);
+    int (*free_queue) (cl_device_id device, cl_command_queue queue);
 };
 
 template<typename T>
 inline int dfcl_retain_object(T *obj) {
-    if (!obj) return 0;
-    return obj->refcount.fetch_add(1, std::memory_order_relaxed);
+    if (!obj) return CL_INVALID_VALUE;
+    return obj->retain();
 }
 
 template<typename T>
 inline int dfcl_release_object(T *obj) {
-    if (!obj) return 0;
-    return obj->refcount.fetch_sub(1, std::memory_order_release);
+    if (!obj) return CL_INVALID_VALUE;
+    return obj->release();;
 }
-
-template<typename T>
-class ClObjectLockGuard {
-public:
-    explicit ClObjectLockGuard(const T *obj) : guard_(obj->mutex) {
-        assert(obj->refcount.load(std::memory_order_relaxed) > 0);
-    }
-private:
-    std::lock_guard<std::mutex> guard_;
-};
 
 #endif /*_DFCL_CL_HPP_*/
 

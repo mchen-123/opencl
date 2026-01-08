@@ -9,6 +9,10 @@ extern int dfcl_offline_compile;
 uint cl_context_count = 0;
 static std::mutex dfcl_context_handling_lock;
 
+std::atomic<int> context_c{0};
+
+#include <atomic>
+
 int
 context_set_properties(cl_context context, 
                        const cl_context_properties *properties) 
@@ -71,7 +75,7 @@ clCreateContext(const cl_context_properties* properties,
             }
         }
 
-        context = (cl_context)calloc(1, sizeof(_cl_context));
+        context = new _cl_context();
         if (context == nullptr) {
             DFCL_SET_FUNCTION_VALUE_RETURN(CL_OUT_OF_HOST_MEMORY, errcode_ret, nullptr);
         }    
@@ -84,7 +88,7 @@ clCreateContext(const cl_context_properties* properties,
             DFCL_SET_FUNCTION_VALUE_RETURN(errcode, errcode_ret, nullptr);
         }
 
-        context->create_devices = (cl_device_id *)calloc(num_devices, sizeof(cl_device_id));
+        context->create_devices = new cl_device_id[num_devices]();
         if (context->create_devices == nullptr) {
             DFCL_MEM_FREE(context->properties);
             DFCL_MEM_FREE(context);
@@ -97,7 +101,7 @@ clCreateContext(const cl_context_properties* properties,
         context->devices = context->create_devices;
         context->num_devices = num_devices;
 
-        context->default_queues = (cl_command_queue *)calloc(num_devices, sizeof(cl_command_queue));
+        context->default_queues = new cl_command_queue[num_devices]();
         if (context->default_queues == nullptr) {
             DFCL_MEM_FREE(context->create_devices);
             DFCL_MEM_FREE(context->properties);
@@ -127,7 +131,7 @@ clCreateContext(const cl_context_properties* properties,
             }
         }
         for (i = 0; i < context->num_create_devices; i++) {
-            if (devices[i] == nullptr || devices[i]->available != CL_TRUE || devices[i]->parent_device == nullptr)
+            if (devices[i] == nullptr || devices[i]->available != CL_TRUE)
                 continue;
             dfcl_retain_object(devices[i]);
         }
@@ -137,7 +141,11 @@ clCreateContext(const cl_context_properties* properties,
         *errcode_ret = CL_SUCCESS;
     }
 
+    DFCL_ATOMIC_INC(context_c);
+
     cl_context_count += 1;
+
+    DFCL_MSG_INFO("Create Context: " << context << ", RefCount: " << context->getRefCount() << " \n");
     return context;
 }
 
@@ -169,6 +177,16 @@ clCreateContext(const cl_context_properties* properties,
 //     return CL_SUCCESS;
 // }
 
+extern "C" CL_API_ENTRY cl_int CL_API_CALL
+clRetainContext(cl_context context) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!is_valid(context)) {
+        return CL_INVALID_CONTEXT;
+    }
+
+    dfcl_retain_object(context);
+    return CL_SUCCESS;
+}
 
 extern "C" CL_API_ENTRY cl_int CL_API_CALL
 clReleaseContext(cl_context context) CL_API_SUFFIX__VERSION_1_0
@@ -180,9 +198,12 @@ clReleaseContext(cl_context context) CL_API_SUFFIX__VERSION_1_0
     std::lock_guard<std::mutex> lock(dfcl_context_handling_lock);
     cl_uint i = 0;
     int new_refcount = dfcl_release_object(context);
-    DFCL_MSG_INFO("release context= " << context << ", new_refcount =" << new_refcount << " \n");
+    DFCL_MSG_INFO("Release Context: " << context << ", new_refcount =" << new_refcount << " \n");
 
     if (new_refcount == 0) {
+
+        DFCL_ATOMIC_DEC(context_c);
+    
         for (i = 0; i < context->num_devices; i++) {
             // cl_device_id dev = context->devices[i];
             if (context->default_queues && context->default_queues[i]) {

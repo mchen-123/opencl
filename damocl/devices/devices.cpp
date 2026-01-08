@@ -115,8 +115,7 @@ dfcl_init_devices(cl_platform_id platform) {
     dev_index = 0;
 
     for(int i = 0; i < device_count; ++i) {
-        cl_device_id dev;
-        dev = (cl_device_id)calloc(1, sizeof(*dev));
+        _cl_device_id *dev = new _cl_device_id();
 
         dev->ops = &dfcl_device_ops_t;
         dev->dev_id = dev_index;

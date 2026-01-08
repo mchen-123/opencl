@@ -48,5 +48,6 @@ int main() {
     printf("成功创建包含 1 个 GPU 的 context!\n");
 
     clReleaseContext(context);
+
     return 0;
 }

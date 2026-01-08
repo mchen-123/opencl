@@ -39,7 +39,7 @@ int main() {
     CHECK(err, "clCreateContext");
 
     cl_queue_properties properties[] = { 0 };
-    queue = clCreateCommandQueueWithProperties(context, device, properties, &err);
+    queue = clCreateCommandQueue(context, device, 0, &err);
     CHECK(err, "clCreateCommandQueueWithProperties");
 
     // 3. 准备主机数据

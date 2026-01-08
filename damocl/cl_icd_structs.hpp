@@ -44,7 +44,8 @@ do                                                                             \
 #define CL_INIT_OBJECT(obj, parent)                                            \
 do                                                                             \
 {                                                                              \
-    obj->dispatch_ = parent->dispatch_;                                          \
+    obj->refcount = 1;                                                         \
+    obj->dispatch_ = parent->dispatch_;                                        \
 } while (0)
 
 #define CL_INIT_PLATFORM(obj, table)                                           \

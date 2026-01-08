@@ -2,6 +2,7 @@
 #define _CL_HELPER_HPP_
 
 #include <new>
+#include <atomic>
 
 #define DFCL_NEW(className) new (std::nothrow) className
 
@@ -10,6 +11,14 @@
 #define DFCL_NEW_ARRAY(className, classCnt) (new (std::nothrow) className[classCnt])
 
 #define DFCL_DELETE_ARRAY(ptr) (delete[] ptr)
+
+inline int DFCL_ATOMIC_INC(std::atomic<int>& x) {
+    return x.fetch_add(1, std::memory_order_seq_cst) + 1;
+}
+
+inline int DFCL_ATOMIC_DEC(std::atomic<int>& x) {
+    return x.fetch_sub(1, std::memory_order_seq_cst) - 1;
+}
 
 #define DFCL_SET_FUNCTION_VALUE_RETURN(VALUE, ERROR, RET)                 \
     do                                                                  \
@@ -48,7 +57,7 @@
 #define DFCL_MEM_FREE(PTR)                          \
     do                                              \
      {                                              \
-        free((PTR));                                \
+        delete ((PTR));                             \
         (PTR) = nullptr;                            \
      }                                              \
     while (0)
