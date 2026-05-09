@@ -1,2 +1,2 @@
 # opencl
-damoOpencl
+thriveOpencl

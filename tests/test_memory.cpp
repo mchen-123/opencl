@@ -85,18 +85,18 @@ int main() {
     printf("clEnqueueWriteBuffer: Data written to device\n");
 
     // Step 3: 使用 clEnqueueReadBuffer 将设备数据读回主机
-    err = clEnqueueReadBuffer(
-        queue,
-        buffer,
-        CL_TRUE,                // 阻塞读
-        0,
-        DATA_BYTES,
-        host_read,              // 目标缓冲区
-        0, NULL, NULL
-    );
-    CHECK(err, "clEnqueueReadBuffer");
+    // err = clEnqueueReadBuffer(
+    //     queue,
+    //     buffer,
+    //     CL_TRUE,                // 阻塞读
+    //     0,
+    //     DATA_BYTES,
+    //     host_read,              // 目标缓冲区
+    //     0, NULL, NULL
+    // );
+    // CHECK(err, "clEnqueueReadBuffer");
 
-    printf("clEnqueueReadBuffer: Data read back to host\n");
+    // printf("clEnqueueReadBuffer: Data read back to host\n");
 
     // =========================================================
 
