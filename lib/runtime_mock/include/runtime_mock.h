@@ -63,6 +63,8 @@ DFResult dfLaunchKernel(DFFunction f, const DFDieConfig *dieCfg,
                         uint64_t sharedMemSize, DFStream hStream,
                         void **kernelParams, void **extra);
 
+DFResult dfDeviceGetDieGrid(DFDevice device, DFDieGrid *grid);
+
 #ifdef __cplusplus
 }
 #endif

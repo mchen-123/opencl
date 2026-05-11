@@ -1,2 +1,2 @@
-# Empty dependencies file for test_context.
+# Empty dependencies file for test_subdevice.
 # This may be replaced when dependencies are built.

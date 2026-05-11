@@ -26,6 +26,7 @@ lib/CMakeFiles/thrive_opencl.dir/cl_device.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /home/mchen/opencl/lib/cl_helper.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
@@ -72,4 +73,5 @@ lib/CMakeFiles/thrive_opencl.dir/cl_device.c.o: \
  /home/mchen/opencl/lib/runtime_mock/include/runtime_mock.h \
  /home/mchen/opencl/lib/runtime_mock/include/runtime_defines.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdatomic.h \
+ /home/mchen/opencl/lib/cl_util.h \
  /home/mchen/opencl/lib/dfruntime/devices.h

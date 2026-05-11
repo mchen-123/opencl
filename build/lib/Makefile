@@ -130,54 +130,6 @@ thrive_opencl/fast:
 	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/build
 .PHONY : thrive_opencl/fast
 
-cl_command.o: cl_command.c.o
-.PHONY : cl_command.o
-
-# target to build an object file
-cl_command.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_command.c.o
-.PHONY : cl_command.c.o
-
-cl_command.i: cl_command.c.i
-.PHONY : cl_command.i
-
-# target to preprocess a source file
-cl_command.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_command.c.i
-.PHONY : cl_command.c.i
-
-cl_command.s: cl_command.c.s
-.PHONY : cl_command.s
-
-# target to generate assembly for a file
-cl_command.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_command.c.s
-.PHONY : cl_command.c.s
-
-cl_context.o: cl_context.c.o
-.PHONY : cl_context.o
-
-# target to build an object file
-cl_context.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_context.c.o
-.PHONY : cl_context.c.o
-
-cl_context.i: cl_context.c.i
-.PHONY : cl_context.i
-
-# target to preprocess a source file
-cl_context.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_context.c.i
-.PHONY : cl_context.c.i
-
-cl_context.s: cl_context.c.s
-.PHONY : cl_context.s
-
-# target to generate assembly for a file
-cl_context.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_context.c.s
-.PHONY : cl_context.c.s
-
 cl_device.o: cl_device.c.o
 .PHONY : cl_device.o
 
@@ -274,30 +226,6 @@ cl_platform.c.s:
 	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_platform.c.s
 .PHONY : cl_platform.c.s
 
-cl_util.o: cl_util.c.o
-.PHONY : cl_util.o
-
-# target to build an object file
-cl_util.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_util.c.o
-.PHONY : cl_util.c.o
-
-cl_util.i: cl_util.c.i
-.PHONY : cl_util.i
-
-# target to preprocess a source file
-cl_util.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_util.c.i
-.PHONY : cl_util.c.i
-
-cl_util.s: cl_util.c.s
-.PHONY : cl_util.s
-
-# target to generate assembly for a file
-cl_util.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/thrive_opencl.dir/build.make lib/CMakeFiles/thrive_opencl.dir/cl_util.c.s
-.PHONY : cl_util.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -307,12 +235,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... thrive_opencl"
-	@echo "... cl_command.o"
-	@echo "... cl_command.i"
-	@echo "... cl_command.s"
-	@echo "... cl_context.o"
-	@echo "... cl_context.i"
-	@echo "... cl_context.s"
 	@echo "... cl_device.o"
 	@echo "... cl_device.i"
 	@echo "... cl_device.s"
@@ -325,9 +247,6 @@ help:
 	@echo "... cl_platform.o"
 	@echo "... cl_platform.i"
 	@echo "... cl_platform.s"
-	@echo "... cl_util.o"
-	@echo "... cl_util.i"
-	@echo "... cl_util.s"
 .PHONY : help
 
 

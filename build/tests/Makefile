@@ -145,56 +145,18 @@ test_device/fast:
 .PHONY : test_device/fast
 
 # Convenience name for target.
-tests/CMakeFiles/test_context.dir/rule:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_context.dir/rule
-.PHONY : tests/CMakeFiles/test_context.dir/rule
+tests/CMakeFiles/test_subdevice.dir/rule:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_subdevice.dir/rule
+.PHONY : tests/CMakeFiles/test_subdevice.dir/rule
 
 # Convenience name for target.
-test_context: tests/CMakeFiles/test_context.dir/rule
-.PHONY : test_context
+test_subdevice: tests/CMakeFiles/test_subdevice.dir/rule
+.PHONY : test_subdevice
 
 # fast build rule for target.
-test_context/fast:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/build
-.PHONY : test_context/fast
-
-# Convenience name for target.
-tests/CMakeFiles/test_program.dir/rule:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_program.dir/rule
-.PHONY : tests/CMakeFiles/test_program.dir/rule
-
-# Convenience name for target.
-test_program: tests/CMakeFiles/test_program.dir/rule
-.PHONY : test_program
-
-# fast build rule for target.
-test_program/fast:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_program.dir/build.make tests/CMakeFiles/test_program.dir/build
-.PHONY : test_program/fast
-
-test_context.o: test_context.cpp.o
-.PHONY : test_context.o
-
-# target to build an object file
-test_context.cpp.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/test_context.cpp.o
-.PHONY : test_context.cpp.o
-
-test_context.i: test_context.cpp.i
-.PHONY : test_context.i
-
-# target to preprocess a source file
-test_context.cpp.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/test_context.cpp.i
-.PHONY : test_context.cpp.i
-
-test_context.s: test_context.cpp.s
-.PHONY : test_context.s
-
-# target to generate assembly for a file
-test_context.cpp.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/test_context.cpp.s
-.PHONY : test_context.cpp.s
+test_subdevice/fast:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/build
+.PHONY : test_subdevice/fast
 
 test_device.o: test_device.cpp.o
 .PHONY : test_device.o
@@ -244,29 +206,29 @@ test_platform.cpp.s:
 	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_platform.dir/build.make tests/CMakeFiles/test_platform.dir/test_platform.cpp.s
 .PHONY : test_platform.cpp.s
 
-test_program.o: test_program.cpp.o
-.PHONY : test_program.o
+test_subdevice.o: test_subdevice.cpp.o
+.PHONY : test_subdevice.o
 
 # target to build an object file
-test_program.cpp.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_program.dir/build.make tests/CMakeFiles/test_program.dir/test_program.cpp.o
-.PHONY : test_program.cpp.o
+test_subdevice.cpp.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/test_subdevice.cpp.o
+.PHONY : test_subdevice.cpp.o
 
-test_program.i: test_program.cpp.i
-.PHONY : test_program.i
+test_subdevice.i: test_subdevice.cpp.i
+.PHONY : test_subdevice.i
 
 # target to preprocess a source file
-test_program.cpp.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_program.dir/build.make tests/CMakeFiles/test_program.dir/test_program.cpp.i
-.PHONY : test_program.cpp.i
+test_subdevice.cpp.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/test_subdevice.cpp.i
+.PHONY : test_subdevice.cpp.i
 
-test_program.s: test_program.cpp.s
-.PHONY : test_program.s
+test_subdevice.s: test_subdevice.cpp.s
+.PHONY : test_subdevice.s
 
 # target to generate assembly for a file
-test_program.cpp.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_program.dir/build.make tests/CMakeFiles/test_program.dir/test_program.cpp.s
-.PHONY : test_program.cpp.s
+test_subdevice.cpp.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/test_subdevice.cpp.s
+.PHONY : test_subdevice.cpp.s
 
 # Help Target
 help:
@@ -276,22 +238,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test_context"
 	@echo "... test_device"
 	@echo "... test_platform"
-	@echo "... test_program"
-	@echo "... test_context.o"
-	@echo "... test_context.i"
-	@echo "... test_context.s"
+	@echo "... test_subdevice"
 	@echo "... test_device.o"
 	@echo "... test_device.i"
 	@echo "... test_device.s"
 	@echo "... test_platform.o"
 	@echo "... test_platform.i"
 	@echo "... test_platform.s"
-	@echo "... test_program.o"
-	@echo "... test_program.i"
-	@echo "... test_program.s"
+	@echo "... test_subdevice.o"
+	@echo "... test_subdevice.i"
+	@echo "... test_subdevice.s"
 .PHONY : help
 
 

@@ -23,6 +23,9 @@
 
 #include <CL/cl.h>
 
+/* THRIVE Vendor Extension for device partitioning by specific Die indices */
+#define CL_DEVICE_PARTITION_BY_DIE_LIST  0x10001000
+
 /* CL_NO_PROTOTYPES implies CL_NO_EXTENSION_PROTOTYPES: */
 #if defined(CL_NO_PROTOTYPES) && !defined(CL_NO_EXTENSION_PROTOTYPES)
 #define CL_NO_EXTENSION_PROTOTYPES

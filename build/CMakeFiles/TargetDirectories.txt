@@ -11,7 +11,6 @@
 /home/mchen/opencl/build/lib/dfruntime/CMakeFiles/rebuild_cache.dir
 /home/mchen/opencl/build/tests/CMakeFiles/test_platform.dir
 /home/mchen/opencl/build/tests/CMakeFiles/test_device.dir
-/home/mchen/opencl/build/tests/CMakeFiles/test_context.dir
-/home/mchen/opencl/build/tests/CMakeFiles/test_program.dir
+/home/mchen/opencl/build/tests/CMakeFiles/test_subdevice.dir
 /home/mchen/opencl/build/tests/CMakeFiles/edit_cache.dir
 /home/mchen/opencl/build/tests/CMakeFiles/rebuild_cache.dir

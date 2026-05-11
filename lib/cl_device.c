@@ -1,7 +1,8 @@
 #include <string.h>
 #include <stdio.h>
-
+#include <stdbool.h>
 #include "cl_helper.h"
+#include "cl_util.h"
 #include "devices.h"
 
 #ifndef CL_USE_DEPRECATED_OPENCL_1_0_APIS
@@ -14,6 +15,7 @@
 
 extern cl_platform_id thrivePlatform;
 
+/* ==================== clGetDeviceIDs ==================== */
 CL_API_ENTRY cl_int CL_API_CALL
 clGetDeviceIDs(cl_platform_id platform,
                cl_device_type device_type,
@@ -21,35 +23,48 @@ clGetDeviceIDs(cl_platform_id platform,
                cl_device_id* devices,
                cl_uint* num_devices) CL_API_SUFFIX__VERSION_1_0
 {
-    int total_num = 0;
-    int devices_added = 0;
+    /* Validate platform */
     if (platform == NULL || platform != thrivePlatform) {
         return CL_INVALID_PLATFORM;
     }
 
-    int err = dfcl_init_devices(platform);
-    if (err)
-        return err;
-
-    total_num = dfcl_get_device_type_count(device_type);
-    if (total_num == 0)
-        return CL_DEVICE_NOT_FOUND;
-
-    if (devices != NULL) {
-        devices_added = dfcl_get_devices(device_type, devices, num_entries);
+    /* Validate device_type */
+    if (device_type == 0) {
+        return CL_INVALID_VALUE;
     }
 
+    /* Initialize devices if not already done */
+    cl_int ret = dfcl_init_devices(platform);
+    if (ret != CL_SUCCESS) {
+        return ret;
+    }
+
+    /* Query available devices matching the type */
+    cl_uint total_devices = dfcl_get_device_type_count(device_type);
+    if (total_devices == 0) {
+        return CL_DEVICE_NOT_FOUND;
+    }
+
+    /* Return device count if requested */
     if (num_devices != NULL) {
-        *num_devices = total_num;
+        *num_devices = total_devices;
     }
 
-    if (devices_added > 0 || num_entries == 0) {
-        return CL_SUCCESS;
-    } else {
-        return CL_DEVICE_NOT_FOUND;
+    /* Return device IDs if buffer provided */
+    if (devices != NULL) {
+        if (num_entries == 0) {
+            return CL_INVALID_VALUE;
+        }
+        cl_uint added = dfcl_get_devices(device_type, devices, num_entries);
+        if (added == 0) {
+            return CL_DEVICE_NOT_FOUND;
+        }
     }
+
+    return CL_SUCCESS;
 }
 
+/* ==================== clGetDeviceInfo ==================== */
 CL_API_ENTRY cl_int CL_API_CALL
 clGetDeviceInfo(cl_device_id device,
                 cl_device_info param_name,
@@ -57,129 +72,454 @@ clGetDeviceInfo(cl_device_id device,
                 void* param_value,
                 size_t* param_value_size_ret) CL_API_SUFFIX__VERSION_1_0
 {
-    cl_int result = CL_SUCCESS;
     if (!is_valid(device))
         return CL_INVALID_DEVICE;
 
     switch (param_name) {
-        case CL_DEVICE_IMAGE_SUPPORT:
+    /* === Basic Device Info === */
+    case CL_DEVICE_TYPE:
+        DFCL_RETURN_VALUE(device->type, cl_device_type);
+        break;
+
+    case CL_DEVICE_VENDOR_ID:
+        DFCL_RETURN_VALUE(device->vendor_id, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_COMPUTE_UNITS:
+        DFCL_RETURN_VALUE(device->max_compute_units, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS:
+        DFCL_RETURN_VALUE(device->max_work_item_dimensions, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_WORK_GROUP_SIZE:
+        /* TODO: Return actual max work group size */
+        DFCL_RETURN_VALUE(1024, size_t);
+        break;
+
+    case CL_DEVICE_MAX_WORK_ITEM_SIZES:
+        /* TODO: Return actual max work item sizes */
         {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_bool, device->image_support, result);
-            break;
+            size_t sizes[3] = {1024, 1024, 1024};
+            size_t len = sizeof(sizes);
+            if (param_value_size_ret)
+                *param_value_size_ret = len;
+            if (param_value) {
+                if (param_value_size < len)
+                    return CL_INVALID_VALUE;
+                memcpy(param_value, sizes, len);
+            }
         }
-        case CL_DEVICE_TYPE:
+        break;
+
+    /* === Memory & Addressing === */
+    case CL_DEVICE_ADDRESS_BITS:
+        DFCL_RETURN_VALUE(device->address_bits, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_MEM_ALLOC_SIZE:
+        /* TODO: Return actual max alloc size */
+        DFCL_RETURN_VALUE(128 * 1024 * 1024, cl_ulong);
+        break;
+
+    case CL_DEVICE_GLOBAL_MEM_SIZE:
+        /* TODO: Return actual global memory size */
+        DFCL_RETURN_VALUE(0, cl_ulong);
+        break;
+
+    case CL_DEVICE_LOCAL_MEM_SIZE:
+        /* TODO: Return actual local memory size */
+        DFCL_RETURN_VALUE(32768, cl_ulong);
+        break;
+
+    case CL_DEVICE_LOCAL_MEM_TYPE:
+        DFCL_RETURN_VALUE(CL_LOCAL, cl_device_local_mem_type);
+        break;
+
+    /* === Floating Point Config === */
+    case CL_DEVICE_SINGLE_FP_CONFIG:
+        DFCL_RETURN_VALUE(device->single_fp_config, cl_device_fp_config);
+        break;
+
+    case CL_DEVICE_DOUBLE_FP_CONFIG:
+        /* TODO: Return double FP config if supported */
+        DFCL_RETURN_VALUE(0, cl_device_fp_config);
+        break;
+
+    case CL_DEVICE_HALF_FP_CONFIG:
+        /* TODO: Return half FP config if supported */
+        DFCL_RETURN_VALUE(0, cl_device_fp_config);
+        break;
+
+    /* === Device Identity Strings === */
+    case CL_DEVICE_VENDOR:
+        DFCL_RETURN_STRING(device->vendor ? device->vendor : "Unknown");
+        break;
+
+    case CL_DEVICE_NAME:
+        DFCL_RETURN_STRING(device->long_name ? device->long_name : "Unknown");
+        break;
+
+    case CL_DEVICE_VERSION:
+        DFCL_RETURN_STRING(device->version ? device->version : "OpenCL 3.0");
+        break;
+
+    case CL_DRIVER_VERSION:
+        DFCL_RETURN_STRING(device->driver_version ? device->driver_version : "1.0");
+        break;
+
+    case CL_DEVICE_PROFILE:
+        DFCL_RETURN_STRING(device->profile ? device->profile : "FULL_PROFILE");
+        break;
+
+    case CL_DEVICE_OPENCL_C_VERSION:
+        DFCL_RETURN_STRING("OpenCL C 3.0");
+        break;
+
+    /* === Platform === */
+    case CL_DEVICE_PLATFORM:
+        DFCL_RETURN_VALUE(device->platform ? device->platform : thrivePlatform, cl_platform_id);
+        break;
+
+    /* === Extensions === */
+    case CL_DEVICE_EXTENSIONS:
+        DFCL_RETURN_STRING("");
+        break;
+
+    /* === Queue Properties === */
+    case CL_DEVICE_QUEUE_ON_HOST_PROPERTIES:
+        /* TODO: Return queue properties */
         {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_device_type, device->type, result);
-            break;
+            cl_command_queue_properties props = CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE | CL_QUEUE_PROFILING_ENABLE;
+            DFCL_RETURN_VALUE(props, cl_command_queue_properties);
         }
-        case CL_DEVICE_VENDOR_ID:
+        break;
+
+    /* === Preferred Vector Widths === */
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_CHAR:
+        DFCL_RETURN_VALUE(16, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_SHORT:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_INT:
+        DFCL_RETURN_VALUE(4, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_LONG:
+        DFCL_RETURN_VALUE(2, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_FLOAT:
+        DFCL_RETURN_VALUE(4, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_DOUBLE:
+        DFCL_RETURN_VALUE(2, cl_uint);
+        break;
+
+    case CL_DEVICE_PREFERRED_VECTOR_WIDTH_HALF:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    /* === Native Vector Widths === */
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_CHAR:
+        DFCL_RETURN_VALUE(16, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_SHORT:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_INT:
+        DFCL_RETURN_VALUE(4, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_LONG:
+        DFCL_RETURN_VALUE(2, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_FLOAT:
+        DFCL_RETURN_VALUE(4, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_DOUBLE:
+        DFCL_RETURN_VALUE(2, cl_uint);
+        break;
+
+    case CL_DEVICE_NATIVE_VECTOR_WIDTH_HALF:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    /* === Device Partition Properties (for sub-devices) === */
+    case CL_DEVICE_PARENT_DEVICE:
+        DFCL_RETURN_VALUE(device->parent_device, cl_device_id);
+        break;
+
+    case CL_DEVICE_PARTITION_MAX_SUB_DEVICES:
+        DFCL_RETURN_VALUE(device->num_dies > 0 ? device->num_dies : 1, cl_uint);
+        break;
+
+    case CL_DEVICE_PARTITION_TYPE:
+        /* Return partition type property */
         {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_uint, device->vendor_id, result);
-            break;
+            cl_device_partition_property props[4] = {0};
+            cl_uint count = 0;
+            if (device->is_multi_die && device->num_dies > 0) {
+                props[count++] = CL_DEVICE_PARTITION_BY_DIE_LIST;
+                props[count++] = 0; /* terminator */
+            } else {
+                props[count++] = 0; /* terminator - no partitioning */
+            }
+            size_t len = count * sizeof(cl_device_partition_property);
+            if (param_value_size_ret)
+                *param_value_size_ret = len;
+            if (param_value) {
+                if (param_value_size < len)
+                    return CL_INVALID_VALUE;
+                memcpy(param_value, props, len);
+            }
         }
-        case CL_DEVICE_MAX_COMPUTE_UNITS:
-        {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_uint, device->max_compute_units, result);
-            break;
-        }
-        case CL_DEVICE_MAX_WORK_ITEM_DIMENSIONS:
-        {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_uint, device->max_work_item_dimensions, result);
-            break;
-        }
-        case CL_DEVICE_VENDOR:
-        {
-            const char *vendor = device->vendor;
-            DFCL_SET_RETURN_PTR(
-                param_value_size, param_value, param_value_size_ret, vendor, strlen(vendor) + 1, result);
-            break;
-        }
-        case CL_DEVICE_NAME:
-        {
-            const char *name = device->long_name;
-            DFCL_SET_RETURN_PTR(
-                param_value_size, param_value, param_value_size_ret, name, strlen(name) + 1, result);
-            break;
-        }
-        case CL_DEVICE_VERSION:
-        {
-            const char *version = device->version;
-            DFCL_SET_RETURN_PTR(
-                param_value_size, param_value, param_value_size_ret, version, strlen(version) + 1, result);
-            break;
-        }
-        case CL_DEVICE_OPENCL_C_VERSION:
-        {
-            const char ch[] = "OpenCL C 3.0";
-            DFCL_SET_RETURN_PTR(
-                param_value_size, param_value, param_value_size_ret, ch, strlen(ch) + 1, result);
-            break;
-        }
-        case CL_DEVICE_SINGLE_FP_CONFIG:
-        {
-            DFCL_SET_RETURN_VAL(
-                param_value_size, param_value, param_value_size_ret, cl_device_fp_config, device->single_fp_config, result);
-            break;
-        }
-        case CL_DEVICE_PROFILE:
-        {
-            const char *profile = device->profile;
-            DFCL_SET_RETURN_PTR(
-                param_value_size, param_value, param_value_size_ret, profile, strlen(profile) + 1, result);
-            break;
-        }
-        case CL_DEVICE_ADDRESS_BITS:
-        {
-            DFCL_SET_RETURN_VAL(param_value_size, param_value, param_value_size_ret, cl_uint, device->address_bits, result);
-            break;
-        }
-        case CL_DEVICE_PLATFORM:
-        {
-            DFCL_SET_RETURN_PTR(param_value_size, param_value, param_value_size_ret, &thrivePlatform, sizeof(cl_platform_id), result);
-            break;
-        }
-        default: result = CL_INVALID_VALUE;
+        break;
+
+    /* === Sub-device specific info === */
+    case CL_DEVICE_REFERENCE_COUNT:
+        DFCL_RETURN_VALUE((cl_uint)atomic_load(&device->refcount), cl_uint);
+        break;
+
+    case CL_DEVICE_AVAILABLE:
+        DFCL_RETURN_VALUE(device->available, cl_bool);
+        break;
+
+    case CL_DEVICE_COMPILER_AVAILABLE:
+        DFCL_RETURN_VALUE(CL_FALSE, cl_bool);
+        break;
+
+    case CL_DEVICE_LINKER_AVAILABLE:
+        DFCL_RETURN_VALUE(CL_FALSE, cl_bool);
+        break;
+
+    case CL_DEVICE_ENDIAN_LITTLE:
+        DFCL_RETURN_VALUE(CL_TRUE, cl_bool);
+        break;
+
+    case CL_DEVICE_EXECUTION_CAPABILITIES:
+        DFCL_RETURN_VALUE(CL_EXEC_KERNEL, cl_device_exec_capabilities);
+        break;
+
+    case CL_DEVICE_PROFILING_TIMER_RESOLUTION:
+        DFCL_RETURN_VALUE(1, size_t);
+        break;
+
+    case CL_DEVICE_GLOBAL_MEM_CACHE_SIZE:
+        DFCL_RETURN_VALUE(0, cl_ulong);
+        break;
+
+    case CL_DEVICE_GLOBAL_MEM_CACHELINE_SIZE:
+        DFCL_RETURN_VALUE(0, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_CLOCK_FREQUENCY:
+        DFCL_RETURN_VALUE(1000, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_READ_IMAGE_ARGS:
+        DFCL_RETURN_VALUE(128, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_WRITE_IMAGE_ARGS:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_READ_WRITE_IMAGE_ARGS:
+        DFCL_RETURN_VALUE(8, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_SAMPLERS:
+        DFCL_RETURN_VALUE(16, cl_uint);
+        break;
+
+    case CL_DEVICE_MEM_BASE_ADDR_ALIGN:
+        DFCL_RETURN_VALUE(128, cl_uint);
+        break;
+
+    case CL_DEVICE_MIN_DATA_TYPE_ALIGN_SIZE:
+        DFCL_RETURN_VALUE(128, cl_uint);
+        break;
+
+    case CL_DEVICE_MAX_PARAMETER_SIZE:
+        DFCL_RETURN_VALUE(1024, size_t);
+        break;
+
+    case CL_DEVICE_PRINTF_BUFFER_SIZE:
+        DFCL_RETURN_VALUE(1024 * 1024, size_t);
+        break;
+
+    case CL_DEVICE_PREFERRED_INTEROP_USER_SYNC:
+        DFCL_RETURN_VALUE(CL_TRUE, cl_bool);
+        break;
+
+    case CL_DEVICE_HOST_UNIFIED_MEMORY:
+        DFCL_RETURN_VALUE(CL_FALSE, cl_bool);
+        break;
+
+    /* CL_DEVICE_CORRECTLY_ROUNDED_DIVIDE_SQRT not available in OpenCL 3.0 headers */
+
+    default:
+        return CL_INVALID_VALUE;
     }
-    return result;
+
+    return CL_SUCCESS;
 }
 
+/* ==================== clRetainDevice ==================== */
 CL_API_ENTRY cl_int CL_API_CALL
 clRetainDevice(cl_device_id device) CL_API_SUFFIX__VERSION_1_2
 {
     if (device == NULL)
         return CL_INVALID_DEVICE;
-    if (device->available != CL_TRUE) {
+
+    if (device->available != CL_TRUE)
         return CL_DEVICE_NOT_AVAILABLE;
-    }
 
-    if (device->parent_device == NULL) {
-        return CL_SUCCESS;
-    }
+    /* Increment reference count for both root and sub-devices */
+    int new_refcount = dfcl_retain_object(device);
 
-    dfcl_retain_object(device);
+    DFCL_MSG_INFO("Retain Device %d (%p), Refcount now: %d",
+                  device->dev_id, (void*)device, new_refcount);
     return CL_SUCCESS;
 }
 
+/* ==================== clReleaseDevice ==================== */
 CL_API_ENTRY cl_int CL_API_CALL
 clReleaseDevice(cl_device_id device) CL_API_SUFFIX__VERSION_1_2
 {
     if (device == NULL)
         return CL_INVALID_DEVICE;
 
+    /* Root devices are not released (managed by platform) */
     if (device->parent_device == NULL) {
         return CL_SUCCESS;
     }
 
+    /* Decrement reference count */
     int new_refcount = dfcl_release_object(device);
-    if (new_refcount == 0) {
-        /* todo: release device */
+
+    DFCL_MSG_INFO("Release Device %d (%p), Refcount now: %d",
+                  device->dev_id, (void*)device, new_refcount);
+
+    /* Free device memory when refcount reaches 0 */
+    if (new_refcount <= 0) {
+        /* Release parent device reference */
+        if (device->parent_device) {
+            clReleaseDevice(device->parent_device);
+        }
+        free(device);
     }
 
-    dfcl_release_object(device);
     return CL_SUCCESS;
+}
+
+/* ==================== clCreateSubDevices ==================== */
+CL_API_ENTRY cl_int CL_API_CALL
+clCreateSubDevices(cl_device_id                          in_device,
+                   const cl_device_partition_property *  properties,
+                   cl_uint                               num_devices,
+                   cl_device_id *                        out_devices,
+                   cl_uint *                             num_devices_ret) CL_API_SUFFIX__VERSION_1_2
+{
+    /* Validate input parameters */
+    if (in_device == NULL || properties == NULL)
+        return CL_INVALID_VALUE;
+
+    /* Only root devices can be partitioned */
+    if (in_device->parent_device != NULL)
+        return CL_INVALID_DEVICE;
+
+    /* Check if device supports partitioning */
+    if (!in_device->is_multi_die || in_device->num_dies == 0)
+        return CL_DEVICE_PARTITION_FAILED;
+
+    cl_device_partition_property ptype = properties[0];
+    cl_uint sub_count = 0;
+    cl_uint prop_idx = 1;
+
+    /* Calculate number of sub-devices based on partition type */
+    switch (ptype) {
+    case CL_DEVICE_PARTITION_BY_DIE_LIST: {
+        /* Count dies specified in the property list */
+        cl_uint i = 1;
+        while (properties[i] != 0) {
+            if (properties[i] >= (cl_device_partition_property)in_device->num_dies)
+                return CL_INVALID_VALUE;
+            sub_count++;
+            i++;
+        }
+        break;
+    }
+
+    default:
+        return CL_INVALID_VALUE;
+    }
+
+    /* Return sub-device count if requested */
+    if (num_devices_ret)
+        *num_devices_ret = sub_count;
+
+    /* Early return if no output buffer or num_devices is 0 */
+    if (num_devices == 0 || out_devices == NULL)
+        return CL_SUCCESS;
+
+    /* Create sub-devices */
+    cl_uint created = 0;
+
+    for (cl_uint i = 0; i < sub_count && i < num_devices; i++) {
+        _cl_device_id *sub = calloc(1, sizeof(_cl_device_id));
+        if (!sub)
+            goto cleanup;
+
+        /* Copy parent device properties */
+        memcpy(sub, in_device, sizeof(_cl_device_id));
+
+        /* Initialize sub-device specific fields */
+        sub->parent_device   = in_device;
+        sub->dev_id          = in_device->dev_id * 100 + i;
+        sub->is_multi_die    = CL_FALSE;
+        sub->num_dies        = 1;
+        sub->available       = CL_TRUE;
+
+        uint32_t target_die = (ptype == CL_DEVICE_PARTITION_BY_DIE_LIST) 
+                            ? properties[prop_idx++] : i;
+        /* Calculate die grid coordinates */
+        int x = target_die % 2;
+        int y = target_die / 2;
+
+        sub->die_grid.upperLeft   = (DFDieCoord){x, y};
+        sub->die_grid.bottomRight = (DFDieCoord){x, y};
+
+        /* Initialize OpenCL object */
+        CL_INIT_OBJECT(sub, in_device);
+        atomic_init(&sub->refcount, 1);
+
+        out_devices[i] = sub;
+        created++;
+
+        /* Retain parent device for each sub-device created */
+        clRetainDevice(in_device);
+    }
+
+    return CL_SUCCESS;
+
+cleanup:
+    /* Clean up already-created sub-devices on failure */
+    for (cl_uint j = 0; j < created; j++) {
+        if (out_devices[j]) {
+            free(out_devices[j]);
+            out_devices[j] = NULL;
+        }
+    }
+    return CL_OUT_OF_HOST_MEMORY;
 }

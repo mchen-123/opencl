@@ -14,11 +14,11 @@ set(COMMON_LINK_LIBS thrive_opencl)
 set(TESTS
     test_platform
     test_device
-    test_context
+    test_subdevice
+    # test_context
     # test_commandqueue
     # test_memory
-    test_program
-    # test_subdevice
+    # test_program
 )
 
 # ============ 批量添加可执行文件 ============

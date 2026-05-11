@@ -182,30 +182,17 @@ test_device/fast:
 .PHONY : test_device/fast
 
 #=============================================================================
-# Target rules for targets named test_context
+# Target rules for targets named test_subdevice
 
 # Build rule for target.
-test_context: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_context
-.PHONY : test_context
+test_subdevice: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_subdevice
+.PHONY : test_subdevice
 
 # fast build rule for target.
-test_context/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/build
-.PHONY : test_context/fast
-
-#=============================================================================
-# Target rules for targets named test_program
-
-# Build rule for target.
-test_program: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_program
-.PHONY : test_program
-
-# fast build rule for target.
-test_program/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_program.dir/build.make tests/CMakeFiles/test_program.dir/build
-.PHONY : test_program/fast
+test_subdevice/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/build
+.PHONY : test_subdevice/fast
 
 # Help Target
 help:
@@ -217,10 +204,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... dfcl-device"
 	@echo "... runtime_mock"
-	@echo "... test_context"
 	@echo "... test_device"
 	@echo "... test_platform"
-	@echo "... test_program"
+	@echo "... test_subdevice"
 	@echo "... thrive_opencl"
 .PHONY : help
 

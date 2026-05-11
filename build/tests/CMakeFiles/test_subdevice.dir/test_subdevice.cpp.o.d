@@ -1,5 +1,5 @@
-tests/CMakeFiles/test_program.dir/test_program.cpp.o: \
- /home/mchen/opencl/tests/test_program.cpp /usr/include/stdc-predef.h \
+tests/CMakeFiles/test_subdevice.dir/test_subdevice.cpp.o: \
+ /home/mchen/opencl/tests/test_subdevice.cpp /usr/include/stdc-predef.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -66,4 +66,5 @@ tests/CMakeFiles/test_program.dir/test_program.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
+ /home/mchen/opencl/lib/install/include/CL/cl_ext.h

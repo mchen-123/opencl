@@ -39,22 +39,12 @@ lib/dfruntime/CMakeFiles/dfcl-device.dir/devices.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
- /usr/include/string.h \
+ /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/include/strings.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
- /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h /usr/include/endian.h \
  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
@@ -63,17 +53,16 @@ lib/dfruntime/CMakeFiles/dfcl-device.dir/devices.c.o: \
  /usr/include/x86_64-linux-gnu/bits/select.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
  /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
- /usr/include/x86_64-linux-gnu/bits/dl_find_object.h \
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdatomic.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
- /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
- /usr/include/x86_64-linux-gnu/bits/local_lim.h \
- /usr/include/linux/limits.h \
- /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
- /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/libgen.h \
  /home/mchen/opencl/lib/dfruntime/devices.h \
  /home/mchen/opencl/lib/dfruntime/../install/include/CL/cl.h \
  /home/mchen/opencl/lib/dfruntime/../install/include/CL/cl_version.h \
@@ -85,7 +74,8 @@ lib/dfruntime/CMakeFiles/dfcl-device.dir/devices.c.o: \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
- /home/mchen/opencl/lib/dfruntime/../cl_helper.h \
+ /home/mchen/opencl/lib/dfruntime/../cl_helper.h /usr/include/string.h \
+ /usr/include/strings.h \
  /home/mchen/opencl/lib/dfruntime/../install/include/CL/cl_icd.h \
  /home/mchen/opencl/lib/dfruntime/../install/include/CL/cl_function_types.h \
  /home/mchen/opencl/lib/dfruntime/../install/include/CL/cl_egl.h \
@@ -96,4 +86,5 @@ lib/dfruntime/CMakeFiles/dfcl-device.dir/devices.c.o: \
  /home/mchen/opencl/lib/runtime_mock/include/runtime_mock.h \
  /home/mchen/opencl/lib/runtime_mock/include/runtime_defines.h \
  /home/mchen/opencl/lib/dfruntime/../cl_util.h \
- /home/mchen/opencl/lib/dfruntime/dynlib.h
+ /home/mchen/opencl/lib/dfruntime/dfcl-runtime.h \
+ /home/mchen/opencl/lib/dfruntime/../install/include/../../cl_helper.h

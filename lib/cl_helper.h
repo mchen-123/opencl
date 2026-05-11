@@ -54,30 +54,6 @@ static inline int DFCL_ATOMIC_DEC(atomic_int *x) {
     }                                                                   \
     while(0)
 
-#define DFCL_SET_RETURN_VAL(param_value_size, param_value_ptr, param_value_size_ret, param_value_type, val, result) \
-    do                                                                                                              \
-    {                                                                                                               \
-        if (param_value_size < sizeof(param_value_type) && (param_value_size > 0))                                  \
-            return CL_INVALID_VALUE;                                                                                \
-        if (param_value_ptr)                                                                                        \
-            *(param_value_type *)(param_value_ptr) = val;                                                           \
-        if (param_value_size_ret)                                                                                   \
-            *param_value_size_ret = sizeof(param_value_type);                                                       \
-    }                                                                                                               \
-    while(0)
-
-#define DFCL_SET_RETURN_PTR(param_value_size, param_value_ptr, param_value_size_ret, param_arr, param_arr_size, result) \
-    do                                                                                                                  \
-    {                                                                                                                   \
-        if (param_value_size < sizeof(param_arr_size) && (param_value_size > 0))                                        \
-            result = CL_INVALID_VALUE;                                                                                  \
-        if (param_value_ptr)                                                                                            \
-            memcpy(param_value_ptr, param_arr, param_arr_size);                                                         \
-        if (param_value_size_ret)                                                                                       \
-            *param_value_size_ret = param_arr_size;                                                                     \
-    }                                                                                                                   \
-    while(0)
-
 #define DFCL_GOTO_ERROR_ON(cond, err_code, ...)                             \
     do                                                                      \
     {                                                                       \
@@ -118,11 +94,6 @@ static inline int DFCL_ATOMIC_DEC(atomic_int *x) {
 } while(0)
 #endif
 
-/* ============ Validation ============ */
-static inline int is_valid(void *handle) {
-    return handle != NULL;
-}
-
 /* ============ ThiveclObject - Base structure for all OpenCL objects with ref counting ============ */
 typedef struct ThiveclObject {
     CL_OBJECT_BODY;
@@ -133,17 +104,6 @@ typedef struct ThiveclObject {
 static inline void dfcl_object_init(ThiveclObject *obj, CLIicdDispatchTable *dispatch) {
     obj->dispatch_ = dispatch;
     atomic_init(&obj->refcount, 1);
-}
-
-/* Thread-safe reference counting */
-static inline int dfcl_object_retain(ThiveclObject *obj) {
-    if (!obj) return CL_INVALID_VALUE;
-    return atomic_fetch_add(&obj->refcount, 1) + 1;
-}
-
-static inline int dfcl_object_release(ThiveclObject *obj) {
-    if (!obj) return CL_INVALID_VALUE;
-    return atomic_fetch_sub(&obj->refcount, 1) - 1;
 }
 
 /* Get current refcount (for debugging) */
@@ -174,46 +134,42 @@ struct _cl_device_id
 {
     CL_OBJECT_BODY;
     atomic_int refcount;
-    uint64_t id;
-
-    /* queries */
-    cl_device_type type;
-    cl_uint vendor_id;
-    cl_uint max_compute_units;
-
-    /* for subdevice support */
-    cl_device_id parent_device;
-
-    cl_uint max_work_item_dimensions;
-    cl_uint address_bits;
-    cl_ulong die_max_mem_alloc_size;
-    cl_device_fp_config single_fp_config;
-
-    /* Device specific operations, shared among devices of the same type */
-    struct dfcl_device_ops *ops;
 
     /* Device ID within the device type */
     int dev_id;
 
+    /* Basic OpenCL Properties */
+    cl_device_type type;
+    cl_uint vendor_id;
+    cl_uint max_compute_units;
+    cl_uint max_work_item_dimensions;
+    cl_uint address_bits;
+
+    cl_device_fp_config single_fp_config;
+    cl_bool image_support;
+    cl_bool available;
+    
+    /* Device Identity */
     const char *short_name;
     const char *long_name;
 
     const char *vendor;
     const char *driver_version;
     const char *profile;
-
     /* these are Device versions, not OpenCL C versions */
     const char *version;
 
-    cl_bool image_support;
-    cl_bool available;
+    cl_platform_id platform;
+    /* ==================== Multi-Die Support ==================== */
+    cl_bool       is_multi_die;
+    uint32_t      num_dies;
+    DFDieGrid     die_grid;
+
+    /* NULL indicates the Root Device. */
+    cl_device_id parent_device;
 
     /* Device specific data needed for internal device functions */
     void *data;
-
-    /* OpenCL 2.0 properties */
-    cl_command_queue_properties on_dev_queue_props;
-    cl_command_queue_properties on_host_queue_props;
 
     /* linked list next pointer */
     struct _cl_device_id *next;
@@ -305,46 +261,17 @@ struct _cl_event
     cl_context context;
 };
 
-/* ============ Device Operations ============ */
-struct dfcl_device_ops {
-    const char *device_name;
-    /**
-     * Called when clFlush is called.
-     *
-     * This function ensures that
-     * commands will be eventually executed. It is up to the device what happens
-     * here, if anything. See basic and pthread for reference.*/
-    void (*flush) (cl_device_id device, cl_command_queue cq);
-
-    /**
-     * Detects & returns the number of available devices the driver finds on the
-     * system.
-     */
-    int (*probe)(struct dfcl_device_ops *ops);
-
-    /**
-     * Initializes a device.
-     * @param i The device index
-     * @param device The cl_device_id to initialize
-     */
-    cl_int (*init)(unsigned int i, struct _cl_device_id *device);
-
-
-    /** Optional: If the driver needs to use hardware resources
-     * for command queues, it should use these callbacks */
-    int (*init_queue) (cl_device_id device, cl_command_queue command_queue);
-    int (*free_queue) (cl_device_id device, cl_command_queue queue);
-};
-
 /* ============ Object Management Functions ============ */
 static inline int dfcl_retain_object(void *obj) {
     if (!obj) return CL_INVALID_VALUE;
-    return dfcl_object_retain((ThiveclObject *)obj);
+    ThiveclObject *clobj = (ThiveclObject *)obj;
+    return atomic_fetch_add(&clobj->refcount, 1) + 1;
 }
 
 static inline int dfcl_release_object(void *obj) {
     if (!obj) return CL_INVALID_VALUE;
-    return dfcl_object_release((ThiveclObject *)obj);
+    ThiveclObject *clobj = (ThiveclObject *)obj;
+    return atomic_fetch_sub(&clobj->refcount, 1) - 1;
 }
 
 /* ============ Command queue list helpers ============ */

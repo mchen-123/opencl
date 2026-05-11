@@ -112,3 +112,24 @@ DFResult dfCtxSetCurrent(DFContext ctx) {
 DFResult dfMemGetInfoEx(size_t *freeMem, size_t *totalMem, const DFDieConfig *dieCfg, DFDieMemInfo *perDieInfos) {
   return DF_SUCCESS;
 }
+
+DFResult dfDeviceGetDieGrid(DFDevice device, DFDieGrid *grid)
+{
+    if (grid == NULL)
+        return DF_ERROR;
+
+    /* ==================== Configurable Mock Grid ==================== */
+    grid->upperLeft.x   = 0;
+    grid->upperLeft.y   = 0;
+    grid->bottomRight.x = 1;     // 2 columns (x=0,1)
+    grid->bottomRight.y = 4;     // 5 rows (y=0~4)
+
+    /* 10 Dies: (0,0)(1,0) (0,1)(1,1) ... (0,4)(1,4) */
+
+    printf("[MOCK] dfDeviceGetDieGrid: 10 Dies configured "
+           "(%dx%d grid)\n", 
+           grid->bottomRight.x + 1, 
+           grid->bottomRight.y + 1);
+
+    return DF_SUCCESS;
+}

@@ -10,7 +10,7 @@ int main() {
     cl_uint num_devices;
     cl_device_type device_type;
     cl_uint vendor_id;
-    cl_uint compute_units = 0;        // 新增：计算单元数
+    cl_uint compute_units = 0;
     size_t size;
 
     // 1. 获取第一个平台
@@ -69,7 +69,7 @@ int main() {
         return -1;
     }
 
-    printf("计算单元数量 (SM/CU): %u\n", compute_units);
+    printf("计算单元数量 (Dies): %u\n", compute_units);
     
     // 第一步：获取所需缓冲区大小
     err = clGetDeviceInfo(device, CL_DEVICE_VENDOR, 0, NULL, &size);

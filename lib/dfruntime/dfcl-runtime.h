@@ -8,7 +8,10 @@
 extern "C" {
 #endif
 
-void dfcl_dfruntime_init_device_ops(struct dfcl_device_ops *ops);
+int dfcl_dfruntime_probe(void);
+
+cl_int dfcl_dfruntime_init(unsigned int dev_id, _cl_device_id *dev);
+
 
 #ifdef __cplusplus
 }

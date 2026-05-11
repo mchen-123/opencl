@@ -41,14 +41,14 @@ cl_int cliIcdDispatchTableCreate(void)
     ICD_DISPATCH_TABLE_ENTRY ( clGetPlatformInfo             );
     ICD_DISPATCH_TABLE_ENTRY ( clGetDeviceIDs                );
     ICD_DISPATCH_TABLE_ENTRY ( clGetDeviceInfo               );
-    ICD_DISPATCH_TABLE_ENTRY ( clCreateContext               );
+    ICD_DISPATCH_TABLE_ENTRY ( NULL              );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL               );
-    ICD_DISPATCH_TABLE_ENTRY ( clReleaseContext              );
+    ICD_DISPATCH_TABLE_ENTRY ( NULL              );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       ); /* ICD_DISPATCH_TABLE_ENTRY ( clGetContextInfo              ); */
-    ICD_DISPATCH_TABLE_ENTRY ( clCreateCommandQueue          );
+    ICD_DISPATCH_TABLE_ENTRY ( NULL          );
     ICD_DISPATCH_TABLE_ENTRY ( NULL         );
-    ICD_DISPATCH_TABLE_ENTRY ( clReleaseCommandQueue         );
+    ICD_DISPATCH_TABLE_ENTRY ( NULL         );
     ICD_DISPATCH_TABLE_ENTRY ( NULL               );
     ICD_DISPATCH_TABLE_ENTRY ( NULL               );
     ICD_DISPATCH_TABLE_ENTRY ( NULL                );
@@ -87,7 +87,7 @@ cl_int cliIcdDispatchTableCreate(void)
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
-    ICD_DISPATCH_TABLE_ENTRY ( clFlush    );
+    ICD_DISPATCH_TABLE_ENTRY ( NULL    );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       ); /* ICD_DISPATCH_TABLE_ENTRY ( clFinish                      ); */
     ICD_DISPATCH_TABLE_ENTRY ( NULL       ); /* ICD_DISPATCH_TABLE_ENTRY ( clEnqueueReadBuffer           ); */
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
@@ -155,7 +155,7 @@ cl_int cliIcdDispatchTableCreate(void)
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );
 
     /* OpenCL 1.2 */
-    ICD_DISPATCH_TABLE_ENTRY ( NULL       );
+    ICD_DISPATCH_TABLE_ENTRY ( clCreateSubDevices       );
     ICD_DISPATCH_TABLE_ENTRY ( clRetainDevice       );
     ICD_DISPATCH_TABLE_ENTRY ( clReleaseDevice      );
     ICD_DISPATCH_TABLE_ENTRY ( NULL       );

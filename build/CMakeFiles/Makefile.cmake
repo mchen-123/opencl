@@ -140,6 +140,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "lib/dfruntime/CMakeFiles/dfcl-device.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_platform.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_device.dir/DependInfo.cmake"
-  "tests/CMakeFiles/test_context.dir/DependInfo.cmake"
-  "tests/CMakeFiles/test_program.dir/DependInfo.cmake"
+  "tests/CMakeFiles/test_subdevice.dir/DependInfo.cmake"
   )
