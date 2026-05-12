@@ -2,13 +2,41 @@
 #define _DEVICES_H_
 
 #include <CL/cl.h>
-
+#include "../cl_helper.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+typedef struct dfcl_dfruntime_device_data_s {
+  DFDevice device;
+  DFContext context;
+  cl_bool available;
+} dfcl_dfruntime_device_data_t;
+
+#define DFCA_CHECK_ERROR(result, api) dfca_check_error(result, api, __FILE__, __LINE__)
+
 /**
-* Initialize all devices for this platform (only self-developed GPUs).
+ * @brief Probe the DF runtime and return the number of available devices.
+ *
+ * Initializes the underlying runtime (dfInit) and queries device count.
+ *
+ * @return Number of detected devices, or 0 if none or initialization failed.
+ */
+int dfcl_dfruntime_probe(void);
+
+/**
+ * @brief Initialize one device with DF runtime.
+ *
+ * Sets OpenCL properties, detects Multi-Die support, and creates low-level context.
+ *
+ * @param dev_id  Device index
+ * @param dev     Device structure to initialize
+ * @return CL_SUCCESS on success
+ */
+cl_int dfcl_dfruntime_init(unsigned int dev_id, _cl_device_id *dev);
+
+/**
+ * Initialize all devices for this platform (only self-developed GPUs).
  *
  * The initialization process includes:
  *   - Probing the number of available GPUs via dfcl_dfruntime_probe()
@@ -21,6 +49,7 @@ extern "C" {
  * \return CL_SUCCESS if successful, otherwise an appropriate OpenCL error code.
  */
 cl_int dfcl_init_devices(cl_platform_id platform);
+
 
 /**
  * Return the total number of available self-developed GPUs in the system.
@@ -54,6 +83,20 @@ uint32_t dfcl_get_device_type_count(cl_device_type device_type);
  * \return The actual number of devices written to the devices array.
  */
 uint32_t dfcl_get_devices(cl_device_type device_type, cl_device_id *devices, uint32_t num_entries);
+
+/**
+ * @brief Deduplicate device list and convert Sub-Devices to Root Devices.
+ *
+ * Used by clCreateContext to ensure each physical device appears only once.
+ *
+ * @param[in]  in     Input array of device IDs (may contain duplicates and Sub-Devices)
+ * @param[in]  num    Number of entries in input array
+ * @param[out] real   Returns the actual number of unique Root Devices
+ *
+ * @return Allocated array of unique Root Devices, or NULL on error.
+ * @note Caller must free the returned pointer.
+ */
+cl_device_id *dfcl_unique_device_list(const cl_device_id *in, cl_uint num, cl_uint *real);
 
 #ifdef __cplusplus
 }

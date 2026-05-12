@@ -20,8 +20,8 @@ add_library(thrive_opencl SHARED
     cl_ext.c
     cl_platform.c
     cl_device.c
-    # cl_context.c
-    # cl_command.c
+    cl_context.c
+    cl_command.c
     # cl_util.c
 
     # cl_memory.c

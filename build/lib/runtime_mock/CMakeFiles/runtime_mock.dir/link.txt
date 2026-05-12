@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -g -g -shared -Wl,-soname,libruntime_mock.so -o libruntime_mock.so CMakeFiles/runtime_mock.dir/src/runtime_mock.cpp.o CMakeFiles/runtime_mock.dir/src/device.cpp.o CMakeFiles/runtime_mock.dir/src/context.cpp.o CMakeFiles/runtime_mock.dir/src/error.cpp.o

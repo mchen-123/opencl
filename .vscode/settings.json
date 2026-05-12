@@ -63,5 +63,31 @@
         "rename_api.hpp": "c",
         "fstream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    // ==================== 自动格式化 ====================
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format", // 或 "ms-vscode.cpptools"
+    // C/C++ 专用
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_style": "file", // 关键：使用项目中的 .clang-format
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    // 可选：更严格的保存行为
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    // 禁用 Microsoft 自己的 formatter，使用 clang-format 更统一
+    "C_Cpp.autoFormat": false
 }

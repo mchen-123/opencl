@@ -10,7 +10,6 @@ set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
 add_library(dfcl-device SHARED
     devices.c
     dynlib.c
-    dfcl-runtime.c
 )
 
 set_target_properties(dfcl-device PROPERTIES

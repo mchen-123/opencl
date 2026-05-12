@@ -15,7 +15,7 @@ set(TESTS
     test_platform
     test_device
     test_subdevice
-    # test_context
+    test_context
     # test_commandqueue
     # test_memory
     # test_program

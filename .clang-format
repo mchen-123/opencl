@@ -1,0 +1,16 @@
+Language: Cpp
+BasedOnStyle: Google
+AlignEscapedNewlines: Left
+AlignOperands: false
+ColumnLimit: 100
+AlwaysBreakTemplateDeclarations: true
+DerivePointerAlignment: false
+IndentFunctionDeclarationAfterType: false
+MaxEmptyLinesToKeep: 2
+SortIncludes: false
+AllowShortFunctionsOnASingleLine: Inline
+AccessModifierOffset: -2
+PointerAlignment: Right
+AllowShortEnumsOnASingleLine: false
+IndentCaseLabels: false
+PackConstructorInitializers: BinPack
