@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(tests LANGUAGES CXX)
 
 # ============ 全局配置 ============
@@ -16,7 +16,8 @@ set(TESTS
     test_device
     test_subdevice
     test_context
-    # test_commandqueue
+    test_commandqueue
+    test_resource_lifecycle
     # test_memory
     # test_program
 )
@@ -28,12 +29,12 @@ foreach(test_name IN LISTS TESTS)
     )
 
     target_include_directories(${test_name} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/../lib/install/include/CL/
-        ${CMAKE_CURRENT_SOURCE_DIR}/../lib/runtime_mock/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src/install/include/CL/
+        ${CMAKE_CURRENT_SOURCE_DIR}/../runtime_mock/src
     )
 
     target_link_libraries(${test_name} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/../lib/install/lib/libOpenCL.so
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src/install/lib/libOpenCL.so
         ${COMMON_LINK_LIBS}
     )
 

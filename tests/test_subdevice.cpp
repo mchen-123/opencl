@@ -29,7 +29,7 @@ int main(void) {
   printf("Root Device acquired: %p\n", (void *)root_dev);
 
   /* 3. 创建 Sub Devices（使用 die2 和 die3） */
-  cl_device_partition_property props[] = {CL_DEVICE_PARTITION_BY_DIE_LIST, 2, 3,  // die2 和 die3
+  cl_device_partition_property props[] = {CL_DEVICE_PARTITION_BY_NAMES_EXT, 2, 3,  // die2 和 die3
                                           0};
 
   err = clCreateSubDevices(root_dev, props, 2, sub_devs, NULL);

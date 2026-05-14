@@ -33,7 +33,7 @@ int main() {
 
   context = clCreateContext(properties,   // properties
                             1,            // num_devices
-                            all_devices,  // 两个 GPU
+                            all_devices,  // 1个 GPU
                             NULL, NULL,   // 回调
                             &err);
   if (err != CL_SUCCESS) {
@@ -41,9 +41,9 @@ int main() {
     return -1;
   }
 
-  // printf("成功创建包含 1 个 GPU 的 context!\n");
+  printf("成功创建包含 1 个 GPU 的 context!\n");
 
-  // clReleaseContext(context);
+  clReleaseContext(context);
 
   return 0;
 }
