@@ -225,18 +225,6 @@ OpenCL_Wrapper_IS_TOP_LEVEL:STATIC=ON
 OpenCL_Wrapper_SOURCE_DIR:STATIC=/home/mchen/opencl
 
 //Value Computed by CMake
-devices_BINARY_DIR:STATIC=/home/mchen/opencl/build/src/dfruntime
-
-//Value Computed by CMake
-devices_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-devices_SOURCE_DIR:STATIC=/home/mchen/opencl/src/dfruntime
-
-//Dependencies for the target
-dfcl-device_LIB_DEPENDS:STATIC=general;/home/mchen/opencl/src/dfruntime/../install/lib/libOpenCL.so;general;runtime_mock;
-
-//Value Computed by CMake
 dfcl_BINARY_DIR:STATIC=/home/mchen/opencl/build/src
 
 //Value Computed by CMake
@@ -264,7 +252,7 @@ tests_IS_TOP_LEVEL:STATIC=OFF
 tests_SOURCE_DIR:STATIC=/home/mchen/opencl/tests
 
 //Dependencies for the target
-thrive_opencl_LIB_DEPENDS:STATIC=general;dfcl-device;general;runtime_mock;general;/home/mchen/opencl/src/install/lib/libOpenCL.so;general;pthread;
+thrive_opencl_LIB_DEPENDS:STATIC=general;runtime_mock;general;/home/mchen/opencl/src/install/lib/libOpenCL.so;general;pthread;general;dl;
 
 
 ########################
@@ -373,7 +361,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

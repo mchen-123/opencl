@@ -69,114 +69,289 @@ include src/CMakeFiles/thrive_opencl.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/thrive_opencl.dir/flags.make
 
-src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o: /home/mchen/opencl/src/cl_icd.c
-src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o -MF CMakeFiles/thrive_opencl.dir/cl_icd.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_icd.c.o -c /home/mchen/opencl/src/cl_icd.c
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o: /home/mchen/opencl/src/platform/clGetPlatformIDs.c
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o -MF CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o.d -o CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o -c /home/mchen/opencl/src/platform/clGetPlatformIDs.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_icd.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_icd.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_icd.c > CMakeFiles/thrive_opencl.dir/cl_icd.c.i
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/platform/clGetPlatformIDs.c > CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_icd.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_icd.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_icd.c -o CMakeFiles/thrive_opencl.dir/cl_icd.c.s
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/platform/clGetPlatformIDs.c -o CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.s
 
-src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o: /home/mchen/opencl/src/cl_ext.c
-src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o -MF CMakeFiles/thrive_opencl.dir/cl_ext.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_ext.c.o -c /home/mchen/opencl/src/cl_ext.c
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o: /home/mchen/opencl/src/platform/clGetPlatformInfo.c
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o -MF CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o.d -o CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o -c /home/mchen/opencl/src/platform/clGetPlatformInfo.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_ext.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_ext.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_ext.c > CMakeFiles/thrive_opencl.dir/cl_ext.c.i
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/platform/clGetPlatformInfo.c > CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_ext.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_ext.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_ext.c -o CMakeFiles/thrive_opencl.dir/cl_ext.c.s
+src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/platform/clGetPlatformInfo.c -o CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.s
 
-src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o: /home/mchen/opencl/src/cl_platform.c
-src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o -MF CMakeFiles/thrive_opencl.dir/cl_platform.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_platform.c.o -c /home/mchen/opencl/src/cl_platform.c
+src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o: /home/mchen/opencl/src/platform/clIcdGetPlatformIDsKHR.c
+src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o -MF CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o.d -o CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o -c /home/mchen/opencl/src/platform/clIcdGetPlatformIDsKHR.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_platform.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_platform.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_platform.c > CMakeFiles/thrive_opencl.dir/cl_platform.c.i
+src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/platform/clIcdGetPlatformIDsKHR.c > CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_platform.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_platform.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_platform.c -o CMakeFiles/thrive_opencl.dir/cl_platform.c.s
+src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/platform/clIcdGetPlatformIDsKHR.c -o CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.s
 
-src/CMakeFiles/thrive_opencl.dir/cl_device.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_device.c.o: /home/mchen/opencl/src/cl_device.c
-src/CMakeFiles/thrive_opencl.dir/cl_device.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_device.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_device.c.o -MF CMakeFiles/thrive_opencl.dir/cl_device.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_device.c.o -c /home/mchen/opencl/src/cl_device.c
+src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o: /home/mchen/opencl/src/icd/cliIcdDispatchTableCreate.c
+src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o -MF CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o.d -o CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o -c /home/mchen/opencl/src/icd/cliIcdDispatchTableCreate.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_device.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_device.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_device.c > CMakeFiles/thrive_opencl.dir/cl_device.c.i
+src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/icd/cliIcdDispatchTableCreate.c > CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_device.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_device.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_device.c -o CMakeFiles/thrive_opencl.dir/cl_device.c.s
+src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/icd/cliIcdDispatchTableCreate.c -o CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.s
 
-src/CMakeFiles/thrive_opencl.dir/cl_context.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_context.c.o: /home/mchen/opencl/src/cl_context.c
-src/CMakeFiles/thrive_opencl.dir/cl_context.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_context.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_context.c.o -MF CMakeFiles/thrive_opencl.dir/cl_context.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_context.c.o -c /home/mchen/opencl/src/cl_context.c
+src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o: /home/mchen/opencl/src/icd/clGetExtensionFunctionAddress.c
+src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o -MF CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o.d -o CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o -c /home/mchen/opencl/src/icd/clGetExtensionFunctionAddress.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_context.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_context.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_context.c > CMakeFiles/thrive_opencl.dir/cl_context.c.i
+src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/icd/clGetExtensionFunctionAddress.c > CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_context.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_context.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_context.c -o CMakeFiles/thrive_opencl.dir/cl_context.c.s
+src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/icd/clGetExtensionFunctionAddress.c -o CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.s
 
-src/CMakeFiles/thrive_opencl.dir/cl_command.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
-src/CMakeFiles/thrive_opencl.dir/cl_command.c.o: /home/mchen/opencl/src/cl_command.c
-src/CMakeFiles/thrive_opencl.dir/cl_command.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/thrive_opencl.dir/cl_command.c.o"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/cl_command.c.o -MF CMakeFiles/thrive_opencl.dir/cl_command.c.o.d -o CMakeFiles/thrive_opencl.dir/cl_command.c.o -c /home/mchen/opencl/src/cl_command.c
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o: /home/mchen/opencl/src/device/clGetDeviceIDs.c
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o -MF CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o.d -o CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o -c /home/mchen/opencl/src/device/clGetDeviceIDs.c
 
-src/CMakeFiles/thrive_opencl.dir/cl_command.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/cl_command.c.i"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/cl_command.c > CMakeFiles/thrive_opencl.dir/cl_command.c.i
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/device/clGetDeviceIDs.c > CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.i
 
-src/CMakeFiles/thrive_opencl.dir/cl_command.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/cl_command.c.s"
-	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/cl_command.c -o CMakeFiles/thrive_opencl.dir/cl_command.c.s
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/device/clGetDeviceIDs.c -o CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.s
+
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o: /home/mchen/opencl/src/device/clGetDeviceInfo.c
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o -MF CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o.d -o CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o -c /home/mchen/opencl/src/device/clGetDeviceInfo.c
+
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/device/clGetDeviceInfo.c > CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.i
+
+src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/device/clGetDeviceInfo.c -o CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.s
+
+src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o: /home/mchen/opencl/src/device/clRetainDevice.c
+src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o -MF CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o.d -o CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o -c /home/mchen/opencl/src/device/clRetainDevice.c
+
+src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/device/clRetainDevice.c > CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.i
+
+src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/device/clRetainDevice.c -o CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.s
+
+src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o: /home/mchen/opencl/src/device/clReleaseDevice.c
+src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o -MF CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o.d -o CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o -c /home/mchen/opencl/src/device/clReleaseDevice.c
+
+src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/device/clReleaseDevice.c > CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.i
+
+src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/device/clReleaseDevice.c -o CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.s
+
+src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o: /home/mchen/opencl/src/device/clCreateSubDevices.c
+src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o -MF CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o.d -o CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o -c /home/mchen/opencl/src/device/clCreateSubDevices.c
+
+src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/device/clCreateSubDevices.c > CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.i
+
+src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/device/clCreateSubDevices.c -o CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.s
+
+src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o: /home/mchen/opencl/src/context/clCreateContext.c
+src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o -MF CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o.d -o CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o -c /home/mchen/opencl/src/context/clCreateContext.c
+
+src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/context/clCreateContext.c > CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.i
+
+src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/context/clCreateContext.c -o CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.s
+
+src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o: /home/mchen/opencl/src/context/clRetainContext.c
+src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o -MF CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o.d -o CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o -c /home/mchen/opencl/src/context/clRetainContext.c
+
+src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/context/clRetainContext.c > CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.i
+
+src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/context/clRetainContext.c -o CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.s
+
+src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o: /home/mchen/opencl/src/context/clReleaseContext.c
+src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o -MF CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o.d -o CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o -c /home/mchen/opencl/src/context/clReleaseContext.c
+
+src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/context/clReleaseContext.c > CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.i
+
+src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/context/clReleaseContext.c -o CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.s
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o: /home/mchen/opencl/src/commandqueue/clCreateCommandQueue.c
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o -MF CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o.d -o CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o -c /home/mchen/opencl/src/commandqueue/clCreateCommandQueue.c
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/commandqueue/clCreateCommandQueue.c > CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.i
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/commandqueue/clCreateCommandQueue.c -o CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.s
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o: /home/mchen/opencl/src/commandqueue/clReleaseCommandQueue.c
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o -MF CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o.d -o CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o -c /home/mchen/opencl/src/commandqueue/clReleaseCommandQueue.c
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/commandqueue/clReleaseCommandQueue.c > CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.i
+
+src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/commandqueue/clReleaseCommandQueue.c -o CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.s
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o: /home/mchen/opencl/src/dfruntime/dfruntime.c
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o -MF CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o.d -o CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o -c /home/mchen/opencl/src/dfruntime/dfruntime.c
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/dfruntime/dfruntime.c > CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.i
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/dfruntime/dfruntime.c -o CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.s
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o: src/CMakeFiles/thrive_opencl.dir/flags.make
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o: /home/mchen/opencl/src/dfruntime/dynlib.c
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o: src/CMakeFiles/thrive_opencl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o -MF CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o.d -o CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o -c /home/mchen/opencl/src/dfruntime/dynlib.c
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.i"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/mchen/opencl/src/dfruntime/dynlib.c > CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.i
+
+src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.s"
+	cd /home/mchen/opencl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mchen/opencl/src/dfruntime/dynlib.c -o CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.s
 
 # Object files for target thrive_opencl
 thrive_opencl_OBJECTS = \
-"CMakeFiles/thrive_opencl.dir/cl_icd.c.o" \
-"CMakeFiles/thrive_opencl.dir/cl_ext.c.o" \
-"CMakeFiles/thrive_opencl.dir/cl_platform.c.o" \
-"CMakeFiles/thrive_opencl.dir/cl_device.c.o" \
-"CMakeFiles/thrive_opencl.dir/cl_context.c.o" \
-"CMakeFiles/thrive_opencl.dir/cl_command.c.o"
+"CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o" \
+"CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o" \
+"CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o" \
+"CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o" \
+"CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o" \
+"CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o" \
+"CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o" \
+"CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o" \
+"CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o" \
+"CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o" \
+"CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o" \
+"CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o" \
+"CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o" \
+"CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o" \
+"CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o" \
+"CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o" \
+"CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o"
 
 # External object files for target thrive_opencl
 thrive_opencl_EXTERNAL_OBJECTS =
 
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_device.c.o
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_context.c.o
-src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/cl_command.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o
+src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o
 src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/build.make
-src/libthrive_opencl.so: src/dfruntime/libdfcl-device.so
 src/libthrive_opencl.so: runtime_mock/libruntime_mock.so
 src/libthrive_opencl.so: /home/mchen/opencl/src/install/lib/libOpenCL.so
 src/libthrive_opencl.so: src/CMakeFiles/thrive_opencl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C shared library libthrive_opencl.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking C shared library libthrive_opencl.so"
 	cd /home/mchen/opencl/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/thrive_opencl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

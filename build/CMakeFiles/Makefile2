@@ -100,32 +100,15 @@ runtime_mock/clean: runtime_mock/CMakeFiles/runtime_mock.dir/clean
 
 # Recursive "all" directory target.
 src/all: src/CMakeFiles/thrive_opencl.dir/all
-src/all: src/dfruntime/all
 .PHONY : src/all
 
 # Recursive "preinstall" directory target.
-src/preinstall: src/dfruntime/preinstall
+src/preinstall:
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/thrive_opencl.dir/clean
-src/clean: src/dfruntime/clean
 .PHONY : src/clean
-
-#=============================================================================
-# Directory level rules for directory src/dfruntime
-
-# Recursive "all" directory target.
-src/dfruntime/all: src/dfruntime/CMakeFiles/dfcl-device.dir/all
-.PHONY : src/dfruntime/all
-
-# Recursive "preinstall" directory target.
-src/dfruntime/preinstall:
-.PHONY : src/dfruntime/preinstall
-
-# Recursive "clean" directory target.
-src/dfruntime/clean: src/dfruntime/CMakeFiles/dfcl-device.dir/clean
-.PHONY : src/dfruntime/clean
 
 #=============================================================================
 # Directory level rules for directory tests
@@ -159,7 +142,7 @@ tests/clean: tests/CMakeFiles/test_resource_lifecycle.dir/clean
 runtime_mock/CMakeFiles/runtime_mock.dir/all:
 	$(MAKE) $(MAKESILENT) -f runtime_mock/CMakeFiles/runtime_mock.dir/build.make runtime_mock/CMakeFiles/runtime_mock.dir/depend
 	$(MAKE) $(MAKESILENT) -f runtime_mock/CMakeFiles/runtime_mock.dir/build.make runtime_mock/CMakeFiles/runtime_mock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=4,5,6,7,8 "Built target runtime_mock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target runtime_mock"
 .PHONY : runtime_mock/CMakeFiles/runtime_mock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -183,15 +166,14 @@ runtime_mock/CMakeFiles/runtime_mock.dir/clean:
 
 # All Build rule for target.
 src/CMakeFiles/thrive_opencl.dir/all: runtime_mock/CMakeFiles/runtime_mock.dir/all
-src/CMakeFiles/thrive_opencl.dir/all: src/dfruntime/CMakeFiles/dfcl-device.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=21,22,23,24,25,26,27 "Built target thrive_opencl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35 "Built target thrive_opencl"
 .PHONY : src/CMakeFiles/thrive_opencl.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/thrive_opencl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/thrive_opencl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/thrive_opencl.dir/rule
@@ -206,44 +188,18 @@ src/CMakeFiles/thrive_opencl.dir/clean:
 .PHONY : src/CMakeFiles/thrive_opencl.dir/clean
 
 #=============================================================================
-# Target rules for target src/dfruntime/CMakeFiles/dfcl-device.dir
-
-# All Build rule for target.
-src/dfruntime/CMakeFiles/dfcl-device.dir/all: runtime_mock/CMakeFiles/runtime_mock.dir/all
-	$(MAKE) $(MAKESILENT) -f src/dfruntime/CMakeFiles/dfcl-device.dir/build.make src/dfruntime/CMakeFiles/dfcl-device.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/dfruntime/CMakeFiles/dfcl-device.dir/build.make src/dfruntime/CMakeFiles/dfcl-device.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=1,2,3 "Built target dfcl-device"
-.PHONY : src/dfruntime/CMakeFiles/dfcl-device.dir/all
-
-# Build rule for subdir invocation for target.
-src/dfruntime/CMakeFiles/dfcl-device.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/dfruntime/CMakeFiles/dfcl-device.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
-.PHONY : src/dfruntime/CMakeFiles/dfcl-device.dir/rule
-
-# Convenience name for target.
-dfcl-device: src/dfruntime/CMakeFiles/dfcl-device.dir/rule
-.PHONY : dfcl-device
-
-# clean rule for target.
-src/dfruntime/CMakeFiles/dfcl-device.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/dfruntime/CMakeFiles/dfcl-device.dir/build.make src/dfruntime/CMakeFiles/dfcl-device.dir/clean
-.PHONY : src/dfruntime/CMakeFiles/dfcl-device.dir/clean
-
-#=============================================================================
 # Target rules for target tests/CMakeFiles/test_platform.dir
 
 # All Build rule for target.
 tests/CMakeFiles/test_platform.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_platform.dir/build.make tests/CMakeFiles/test_platform.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_platform.dir/build.make tests/CMakeFiles/test_platform.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=15,16 "Built target test_platform"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=12,13 "Built target test_platform"
 .PHONY : tests/CMakeFiles/test_platform.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_platform.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_platform.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_platform.dir/rule
@@ -264,12 +220,12 @@ tests/CMakeFiles/test_platform.dir/clean:
 tests/CMakeFiles/test_device.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_device.dir/build.make tests/CMakeFiles/test_device.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_device.dir/build.make tests/CMakeFiles/test_device.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=13,14 "Built target test_device"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=10,11 "Built target test_device"
 .PHONY : tests/CMakeFiles/test_device.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_device.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_device.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_device.dir/rule
@@ -290,12 +246,12 @@ tests/CMakeFiles/test_device.dir/clean:
 tests/CMakeFiles/test_subdevice.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_subdevice.dir/build.make tests/CMakeFiles/test_subdevice.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=19,20 "Built target test_subdevice"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=16,17 "Built target test_subdevice"
 .PHONY : tests/CMakeFiles/test_subdevice.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_subdevice.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_subdevice.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_subdevice.dir/rule
@@ -316,12 +272,12 @@ tests/CMakeFiles/test_subdevice.dir/clean:
 tests/CMakeFiles/test_context.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_context.dir/build.make tests/CMakeFiles/test_context.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=11,12 "Built target test_context"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=8,9 "Built target test_context"
 .PHONY : tests/CMakeFiles/test_context.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_context.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_context.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_context.dir/rule
@@ -342,12 +298,12 @@ tests/CMakeFiles/test_context.dir/clean:
 tests/CMakeFiles/test_commandqueue.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_commandqueue.dir/build.make tests/CMakeFiles/test_commandqueue.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_commandqueue.dir/build.make tests/CMakeFiles/test_commandqueue.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=9,10 "Built target test_commandqueue"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=6,7 "Built target test_commandqueue"
 .PHONY : tests/CMakeFiles/test_commandqueue.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_commandqueue.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_commandqueue.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_commandqueue.dir/rule
@@ -368,12 +324,12 @@ tests/CMakeFiles/test_commandqueue.dir/clean:
 tests/CMakeFiles/test_resource_lifecycle.dir/all: src/CMakeFiles/thrive_opencl.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_resource_lifecycle.dir/build.make tests/CMakeFiles/test_resource_lifecycle.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_resource_lifecycle.dir/build.make tests/CMakeFiles/test_resource_lifecycle.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=17,18 "Built target test_resource_lifecycle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/mchen/opencl/build/CMakeFiles --progress-num=14,15 "Built target test_resource_lifecycle"
 .PHONY : tests/CMakeFiles/test_resource_lifecycle.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/test_resource_lifecycle.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_resource_lifecycle.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mchen/opencl/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/test_resource_lifecycle.dir/rule

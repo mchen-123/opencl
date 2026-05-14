@@ -8,12 +8,23 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/mchen/opencl/src/cl_command.c" "src/CMakeFiles/thrive_opencl.dir/cl_command.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_command.c.o.d"
-  "/home/mchen/opencl/src/cl_context.c" "src/CMakeFiles/thrive_opencl.dir/cl_context.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_context.c.o.d"
-  "/home/mchen/opencl/src/cl_device.c" "src/CMakeFiles/thrive_opencl.dir/cl_device.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_device.c.o.d"
-  "/home/mchen/opencl/src/cl_ext.c" "src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o.d"
-  "/home/mchen/opencl/src/cl_icd.c" "src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o.d"
-  "/home/mchen/opencl/src/cl_platform.c" "src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o.d"
+  "/home/mchen/opencl/src/commandqueue/clCreateCommandQueue.c" "src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o.d"
+  "/home/mchen/opencl/src/commandqueue/clReleaseCommandQueue.c" "src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o.d"
+  "/home/mchen/opencl/src/context/clCreateContext.c" "src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o.d"
+  "/home/mchen/opencl/src/context/clReleaseContext.c" "src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o.d"
+  "/home/mchen/opencl/src/context/clRetainContext.c" "src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o.d"
+  "/home/mchen/opencl/src/device/clCreateSubDevices.c" "src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o.d"
+  "/home/mchen/opencl/src/device/clGetDeviceIDs.c" "src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o.d"
+  "/home/mchen/opencl/src/device/clGetDeviceInfo.c" "src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o.d"
+  "/home/mchen/opencl/src/device/clReleaseDevice.c" "src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o.d"
+  "/home/mchen/opencl/src/device/clRetainDevice.c" "src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o.d"
+  "/home/mchen/opencl/src/dfruntime/dfruntime.c" "src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o.d"
+  "/home/mchen/opencl/src/dfruntime/dynlib.c" "src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o.d"
+  "/home/mchen/opencl/src/icd/clGetExtensionFunctionAddress.c" "src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o.d"
+  "/home/mchen/opencl/src/icd/cliIcdDispatchTableCreate.c" "src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o.d"
+  "/home/mchen/opencl/src/platform/clGetPlatformIDs.c" "src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o.d"
+  "/home/mchen/opencl/src/platform/clGetPlatformInfo.c" "src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o.d"
+  "/home/mchen/opencl/src/platform/clIcdGetPlatformIDsKHR.c" "src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o" "gcc" "src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

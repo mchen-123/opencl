@@ -13,7 +13,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.30.5/CMakeSystem.cmake"
   "/home/mchen/opencl/runtime_mock/CMakeLists.txt"
   "/home/mchen/opencl/src/CMakeLists.txt"
-  "/home/mchen/opencl/src/dfruntime/CMakeLists.txt"
   "/home/mchen/opencl/tests/CMakeLists.txt"
   "/usr/local/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in"
   "/usr/local/share/cmake-3.30/Modules/CMakeCCompilerABI.c"
@@ -129,7 +128,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/3.30.5/CMakeCCompiler.cmake"
   "runtime_mock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "src/dfruntime/CMakeFiles/CMakeDirectoryInformation.cmake"
   "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -137,7 +135,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "runtime_mock/CMakeFiles/runtime_mock.dir/DependInfo.cmake"
   "src/CMakeFiles/thrive_opencl.dir/DependInfo.cmake"
-  "src/dfruntime/CMakeFiles/dfcl-device.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_platform.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_device.dir/DependInfo.cmake"
   "tests/CMakeFiles/test_subdevice.dir/DependInfo.cmake"

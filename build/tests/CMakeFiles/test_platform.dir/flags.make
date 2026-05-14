@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DCL_TARGET_OPENCL_VERSION=220
 
-CXX_INCLUDES = -I/home/mchen/opencl/tests/../src/install/include/CL -I/home/mchen/opencl/tests/../runtime_mock/src -I/home/mchen/opencl/src -I/home/mchen/opencl/src/install/include -I/home/mchen/opencl/src/dfruntime -I/home/mchen/opencl/src/../runtime_mock/include -I/home/mchen/opencl/src/../runtime_mock/src
+CXX_INCLUDES = -I/home/mchen/opencl/tests/../src/install/include/CL -I/home/mchen/opencl/tests/../runtime_mock/src -I/home/mchen/opencl/src -I/home/mchen/opencl/src/../inc -I/home/mchen/opencl/src/install/include -I/home/mchen/opencl/src/dfruntime -I/home/mchen/opencl/src/../runtime_mock/include -I/home/mchen/opencl/src/../runtime_mock/src
 
 CXX_FLAGS = -g -g -g -std=gnu++17
 

@@ -8,7 +8,7 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
 
 add_library(dfcl-device SHARED
-    devices.c
+    dfruntime.c
     dynlib.c
 )
 
@@ -20,6 +20,7 @@ set_target_properties(dfcl-device PROPERTIES
 target_include_directories(dfcl-device PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/..
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../inc
     ${CMAKE_CURRENT_SOURCE_DIR}/../install/include
     ${CMAKE_CURRENT_SOURCE_DIR}/../
 )

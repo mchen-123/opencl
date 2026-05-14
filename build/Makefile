@@ -143,19 +143,6 @@ thrive_opencl/fast:
 .PHONY : thrive_opencl/fast
 
 #=============================================================================
-# Target rules for targets named dfcl-device
-
-# Build rule for target.
-dfcl-device: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dfcl-device
-.PHONY : dfcl-device
-
-# fast build rule for target.
-dfcl-device/fast:
-	$(MAKE) $(MAKESILENT) -f src/dfruntime/CMakeFiles/dfcl-device.dir/build.make src/dfruntime/CMakeFiles/dfcl-device.dir/build
-.PHONY : dfcl-device/fast
-
-#=============================================================================
 # Target rules for targets named test_platform
 
 # Build rule for target.
@@ -241,7 +228,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... dfcl-device"
 	@echo "... runtime_mock"
 	@echo "... test_commandqueue"
 	@echo "... test_context"

@@ -130,149 +130,413 @@ thrive_opencl/fast:
 	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/build
 .PHONY : thrive_opencl/fast
 
-cl_command.o: cl_command.c.o
-.PHONY : cl_command.o
+commandqueue/clCreateCommandQueue.o: commandqueue/clCreateCommandQueue.c.o
+.PHONY : commandqueue/clCreateCommandQueue.o
 
 # target to build an object file
-cl_command.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_command.c.o
-.PHONY : cl_command.c.o
+commandqueue/clCreateCommandQueue.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.o
+.PHONY : commandqueue/clCreateCommandQueue.c.o
 
-cl_command.i: cl_command.c.i
-.PHONY : cl_command.i
+commandqueue/clCreateCommandQueue.i: commandqueue/clCreateCommandQueue.c.i
+.PHONY : commandqueue/clCreateCommandQueue.i
 
 # target to preprocess a source file
-cl_command.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_command.c.i
-.PHONY : cl_command.c.i
+commandqueue/clCreateCommandQueue.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.i
+.PHONY : commandqueue/clCreateCommandQueue.c.i
 
-cl_command.s: cl_command.c.s
-.PHONY : cl_command.s
+commandqueue/clCreateCommandQueue.s: commandqueue/clCreateCommandQueue.c.s
+.PHONY : commandqueue/clCreateCommandQueue.s
 
 # target to generate assembly for a file
-cl_command.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_command.c.s
-.PHONY : cl_command.c.s
+commandqueue/clCreateCommandQueue.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clCreateCommandQueue.c.s
+.PHONY : commandqueue/clCreateCommandQueue.c.s
 
-cl_context.o: cl_context.c.o
-.PHONY : cl_context.o
+commandqueue/clReleaseCommandQueue.o: commandqueue/clReleaseCommandQueue.c.o
+.PHONY : commandqueue/clReleaseCommandQueue.o
 
 # target to build an object file
-cl_context.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_context.c.o
-.PHONY : cl_context.c.o
+commandqueue/clReleaseCommandQueue.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.o
+.PHONY : commandqueue/clReleaseCommandQueue.c.o
 
-cl_context.i: cl_context.c.i
-.PHONY : cl_context.i
+commandqueue/clReleaseCommandQueue.i: commandqueue/clReleaseCommandQueue.c.i
+.PHONY : commandqueue/clReleaseCommandQueue.i
 
 # target to preprocess a source file
-cl_context.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_context.c.i
-.PHONY : cl_context.c.i
+commandqueue/clReleaseCommandQueue.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.i
+.PHONY : commandqueue/clReleaseCommandQueue.c.i
 
-cl_context.s: cl_context.c.s
-.PHONY : cl_context.s
+commandqueue/clReleaseCommandQueue.s: commandqueue/clReleaseCommandQueue.c.s
+.PHONY : commandqueue/clReleaseCommandQueue.s
 
 # target to generate assembly for a file
-cl_context.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_context.c.s
-.PHONY : cl_context.c.s
+commandqueue/clReleaseCommandQueue.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/commandqueue/clReleaseCommandQueue.c.s
+.PHONY : commandqueue/clReleaseCommandQueue.c.s
 
-cl_device.o: cl_device.c.o
-.PHONY : cl_device.o
+context/clCreateContext.o: context/clCreateContext.c.o
+.PHONY : context/clCreateContext.o
 
 # target to build an object file
-cl_device.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_device.c.o
-.PHONY : cl_device.c.o
+context/clCreateContext.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.o
+.PHONY : context/clCreateContext.c.o
 
-cl_device.i: cl_device.c.i
-.PHONY : cl_device.i
+context/clCreateContext.i: context/clCreateContext.c.i
+.PHONY : context/clCreateContext.i
 
 # target to preprocess a source file
-cl_device.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_device.c.i
-.PHONY : cl_device.c.i
+context/clCreateContext.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.i
+.PHONY : context/clCreateContext.c.i
 
-cl_device.s: cl_device.c.s
-.PHONY : cl_device.s
+context/clCreateContext.s: context/clCreateContext.c.s
+.PHONY : context/clCreateContext.s
 
 # target to generate assembly for a file
-cl_device.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_device.c.s
-.PHONY : cl_device.c.s
+context/clCreateContext.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clCreateContext.c.s
+.PHONY : context/clCreateContext.c.s
 
-cl_ext.o: cl_ext.c.o
-.PHONY : cl_ext.o
+context/clReleaseContext.o: context/clReleaseContext.c.o
+.PHONY : context/clReleaseContext.o
 
 # target to build an object file
-cl_ext.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_ext.c.o
-.PHONY : cl_ext.c.o
+context/clReleaseContext.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.o
+.PHONY : context/clReleaseContext.c.o
 
-cl_ext.i: cl_ext.c.i
-.PHONY : cl_ext.i
+context/clReleaseContext.i: context/clReleaseContext.c.i
+.PHONY : context/clReleaseContext.i
 
 # target to preprocess a source file
-cl_ext.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_ext.c.i
-.PHONY : cl_ext.c.i
+context/clReleaseContext.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.i
+.PHONY : context/clReleaseContext.c.i
 
-cl_ext.s: cl_ext.c.s
-.PHONY : cl_ext.s
+context/clReleaseContext.s: context/clReleaseContext.c.s
+.PHONY : context/clReleaseContext.s
 
 # target to generate assembly for a file
-cl_ext.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_ext.c.s
-.PHONY : cl_ext.c.s
+context/clReleaseContext.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clReleaseContext.c.s
+.PHONY : context/clReleaseContext.c.s
 
-cl_icd.o: cl_icd.c.o
-.PHONY : cl_icd.o
+context/clRetainContext.o: context/clRetainContext.c.o
+.PHONY : context/clRetainContext.o
 
 # target to build an object file
-cl_icd.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_icd.c.o
-.PHONY : cl_icd.c.o
+context/clRetainContext.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.o
+.PHONY : context/clRetainContext.c.o
 
-cl_icd.i: cl_icd.c.i
-.PHONY : cl_icd.i
+context/clRetainContext.i: context/clRetainContext.c.i
+.PHONY : context/clRetainContext.i
 
 # target to preprocess a source file
-cl_icd.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_icd.c.i
-.PHONY : cl_icd.c.i
+context/clRetainContext.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.i
+.PHONY : context/clRetainContext.c.i
 
-cl_icd.s: cl_icd.c.s
-.PHONY : cl_icd.s
+context/clRetainContext.s: context/clRetainContext.c.s
+.PHONY : context/clRetainContext.s
 
 # target to generate assembly for a file
-cl_icd.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_icd.c.s
-.PHONY : cl_icd.c.s
+context/clRetainContext.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/context/clRetainContext.c.s
+.PHONY : context/clRetainContext.c.s
 
-cl_platform.o: cl_platform.c.o
-.PHONY : cl_platform.o
+device/clCreateSubDevices.o: device/clCreateSubDevices.c.o
+.PHONY : device/clCreateSubDevices.o
 
 # target to build an object file
-cl_platform.c.o:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_platform.c.o
-.PHONY : cl_platform.c.o
+device/clCreateSubDevices.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.o
+.PHONY : device/clCreateSubDevices.c.o
 
-cl_platform.i: cl_platform.c.i
-.PHONY : cl_platform.i
+device/clCreateSubDevices.i: device/clCreateSubDevices.c.i
+.PHONY : device/clCreateSubDevices.i
 
 # target to preprocess a source file
-cl_platform.c.i:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_platform.c.i
-.PHONY : cl_platform.c.i
+device/clCreateSubDevices.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.i
+.PHONY : device/clCreateSubDevices.c.i
 
-cl_platform.s: cl_platform.c.s
-.PHONY : cl_platform.s
+device/clCreateSubDevices.s: device/clCreateSubDevices.c.s
+.PHONY : device/clCreateSubDevices.s
 
 # target to generate assembly for a file
-cl_platform.c.s:
-	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/cl_platform.c.s
-.PHONY : cl_platform.c.s
+device/clCreateSubDevices.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clCreateSubDevices.c.s
+.PHONY : device/clCreateSubDevices.c.s
+
+device/clGetDeviceIDs.o: device/clGetDeviceIDs.c.o
+.PHONY : device/clGetDeviceIDs.o
+
+# target to build an object file
+device/clGetDeviceIDs.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.o
+.PHONY : device/clGetDeviceIDs.c.o
+
+device/clGetDeviceIDs.i: device/clGetDeviceIDs.c.i
+.PHONY : device/clGetDeviceIDs.i
+
+# target to preprocess a source file
+device/clGetDeviceIDs.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.i
+.PHONY : device/clGetDeviceIDs.c.i
+
+device/clGetDeviceIDs.s: device/clGetDeviceIDs.c.s
+.PHONY : device/clGetDeviceIDs.s
+
+# target to generate assembly for a file
+device/clGetDeviceIDs.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceIDs.c.s
+.PHONY : device/clGetDeviceIDs.c.s
+
+device/clGetDeviceInfo.o: device/clGetDeviceInfo.c.o
+.PHONY : device/clGetDeviceInfo.o
+
+# target to build an object file
+device/clGetDeviceInfo.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.o
+.PHONY : device/clGetDeviceInfo.c.o
+
+device/clGetDeviceInfo.i: device/clGetDeviceInfo.c.i
+.PHONY : device/clGetDeviceInfo.i
+
+# target to preprocess a source file
+device/clGetDeviceInfo.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.i
+.PHONY : device/clGetDeviceInfo.c.i
+
+device/clGetDeviceInfo.s: device/clGetDeviceInfo.c.s
+.PHONY : device/clGetDeviceInfo.s
+
+# target to generate assembly for a file
+device/clGetDeviceInfo.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clGetDeviceInfo.c.s
+.PHONY : device/clGetDeviceInfo.c.s
+
+device/clReleaseDevice.o: device/clReleaseDevice.c.o
+.PHONY : device/clReleaseDevice.o
+
+# target to build an object file
+device/clReleaseDevice.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.o
+.PHONY : device/clReleaseDevice.c.o
+
+device/clReleaseDevice.i: device/clReleaseDevice.c.i
+.PHONY : device/clReleaseDevice.i
+
+# target to preprocess a source file
+device/clReleaseDevice.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.i
+.PHONY : device/clReleaseDevice.c.i
+
+device/clReleaseDevice.s: device/clReleaseDevice.c.s
+.PHONY : device/clReleaseDevice.s
+
+# target to generate assembly for a file
+device/clReleaseDevice.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clReleaseDevice.c.s
+.PHONY : device/clReleaseDevice.c.s
+
+device/clRetainDevice.o: device/clRetainDevice.c.o
+.PHONY : device/clRetainDevice.o
+
+# target to build an object file
+device/clRetainDevice.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.o
+.PHONY : device/clRetainDevice.c.o
+
+device/clRetainDevice.i: device/clRetainDevice.c.i
+.PHONY : device/clRetainDevice.i
+
+# target to preprocess a source file
+device/clRetainDevice.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.i
+.PHONY : device/clRetainDevice.c.i
+
+device/clRetainDevice.s: device/clRetainDevice.c.s
+.PHONY : device/clRetainDevice.s
+
+# target to generate assembly for a file
+device/clRetainDevice.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/device/clRetainDevice.c.s
+.PHONY : device/clRetainDevice.c.s
+
+dfruntime/dfruntime.o: dfruntime/dfruntime.c.o
+.PHONY : dfruntime/dfruntime.o
+
+# target to build an object file
+dfruntime/dfruntime.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.o
+.PHONY : dfruntime/dfruntime.c.o
+
+dfruntime/dfruntime.i: dfruntime/dfruntime.c.i
+.PHONY : dfruntime/dfruntime.i
+
+# target to preprocess a source file
+dfruntime/dfruntime.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.i
+.PHONY : dfruntime/dfruntime.c.i
+
+dfruntime/dfruntime.s: dfruntime/dfruntime.c.s
+.PHONY : dfruntime/dfruntime.s
+
+# target to generate assembly for a file
+dfruntime/dfruntime.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dfruntime.c.s
+.PHONY : dfruntime/dfruntime.c.s
+
+dfruntime/dynlib.o: dfruntime/dynlib.c.o
+.PHONY : dfruntime/dynlib.o
+
+# target to build an object file
+dfruntime/dynlib.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.o
+.PHONY : dfruntime/dynlib.c.o
+
+dfruntime/dynlib.i: dfruntime/dynlib.c.i
+.PHONY : dfruntime/dynlib.i
+
+# target to preprocess a source file
+dfruntime/dynlib.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.i
+.PHONY : dfruntime/dynlib.c.i
+
+dfruntime/dynlib.s: dfruntime/dynlib.c.s
+.PHONY : dfruntime/dynlib.s
+
+# target to generate assembly for a file
+dfruntime/dynlib.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/dfruntime/dynlib.c.s
+.PHONY : dfruntime/dynlib.c.s
+
+icd/clGetExtensionFunctionAddress.o: icd/clGetExtensionFunctionAddress.c.o
+.PHONY : icd/clGetExtensionFunctionAddress.o
+
+# target to build an object file
+icd/clGetExtensionFunctionAddress.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.o
+.PHONY : icd/clGetExtensionFunctionAddress.c.o
+
+icd/clGetExtensionFunctionAddress.i: icd/clGetExtensionFunctionAddress.c.i
+.PHONY : icd/clGetExtensionFunctionAddress.i
+
+# target to preprocess a source file
+icd/clGetExtensionFunctionAddress.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.i
+.PHONY : icd/clGetExtensionFunctionAddress.c.i
+
+icd/clGetExtensionFunctionAddress.s: icd/clGetExtensionFunctionAddress.c.s
+.PHONY : icd/clGetExtensionFunctionAddress.s
+
+# target to generate assembly for a file
+icd/clGetExtensionFunctionAddress.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/clGetExtensionFunctionAddress.c.s
+.PHONY : icd/clGetExtensionFunctionAddress.c.s
+
+icd/cliIcdDispatchTableCreate.o: icd/cliIcdDispatchTableCreate.c.o
+.PHONY : icd/cliIcdDispatchTableCreate.o
+
+# target to build an object file
+icd/cliIcdDispatchTableCreate.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.o
+.PHONY : icd/cliIcdDispatchTableCreate.c.o
+
+icd/cliIcdDispatchTableCreate.i: icd/cliIcdDispatchTableCreate.c.i
+.PHONY : icd/cliIcdDispatchTableCreate.i
+
+# target to preprocess a source file
+icd/cliIcdDispatchTableCreate.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.i
+.PHONY : icd/cliIcdDispatchTableCreate.c.i
+
+icd/cliIcdDispatchTableCreate.s: icd/cliIcdDispatchTableCreate.c.s
+.PHONY : icd/cliIcdDispatchTableCreate.s
+
+# target to generate assembly for a file
+icd/cliIcdDispatchTableCreate.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/icd/cliIcdDispatchTableCreate.c.s
+.PHONY : icd/cliIcdDispatchTableCreate.c.s
+
+platform/clGetPlatformIDs.o: platform/clGetPlatformIDs.c.o
+.PHONY : platform/clGetPlatformIDs.o
+
+# target to build an object file
+platform/clGetPlatformIDs.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.o
+.PHONY : platform/clGetPlatformIDs.c.o
+
+platform/clGetPlatformIDs.i: platform/clGetPlatformIDs.c.i
+.PHONY : platform/clGetPlatformIDs.i
+
+# target to preprocess a source file
+platform/clGetPlatformIDs.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.i
+.PHONY : platform/clGetPlatformIDs.c.i
+
+platform/clGetPlatformIDs.s: platform/clGetPlatformIDs.c.s
+.PHONY : platform/clGetPlatformIDs.s
+
+# target to generate assembly for a file
+platform/clGetPlatformIDs.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformIDs.c.s
+.PHONY : platform/clGetPlatformIDs.c.s
+
+platform/clGetPlatformInfo.o: platform/clGetPlatformInfo.c.o
+.PHONY : platform/clGetPlatformInfo.o
+
+# target to build an object file
+platform/clGetPlatformInfo.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.o
+.PHONY : platform/clGetPlatformInfo.c.o
+
+platform/clGetPlatformInfo.i: platform/clGetPlatformInfo.c.i
+.PHONY : platform/clGetPlatformInfo.i
+
+# target to preprocess a source file
+platform/clGetPlatformInfo.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.i
+.PHONY : platform/clGetPlatformInfo.c.i
+
+platform/clGetPlatformInfo.s: platform/clGetPlatformInfo.c.s
+.PHONY : platform/clGetPlatformInfo.s
+
+# target to generate assembly for a file
+platform/clGetPlatformInfo.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clGetPlatformInfo.c.s
+.PHONY : platform/clGetPlatformInfo.c.s
+
+platform/clIcdGetPlatformIDsKHR.o: platform/clIcdGetPlatformIDsKHR.c.o
+.PHONY : platform/clIcdGetPlatformIDsKHR.o
+
+# target to build an object file
+platform/clIcdGetPlatformIDsKHR.c.o:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.o
+.PHONY : platform/clIcdGetPlatformIDsKHR.c.o
+
+platform/clIcdGetPlatformIDsKHR.i: platform/clIcdGetPlatformIDsKHR.c.i
+.PHONY : platform/clIcdGetPlatformIDsKHR.i
+
+# target to preprocess a source file
+platform/clIcdGetPlatformIDsKHR.c.i:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.i
+.PHONY : platform/clIcdGetPlatformIDsKHR.c.i
+
+platform/clIcdGetPlatformIDsKHR.s: platform/clIcdGetPlatformIDsKHR.c.s
+.PHONY : platform/clIcdGetPlatformIDsKHR.s
+
+# target to generate assembly for a file
+platform/clIcdGetPlatformIDsKHR.c.s:
+	cd /home/mchen/opencl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/thrive_opencl.dir/build.make src/CMakeFiles/thrive_opencl.dir/platform/clIcdGetPlatformIDsKHR.c.s
+.PHONY : platform/clIcdGetPlatformIDsKHR.c.s
 
 # Help Target
 help:
@@ -283,24 +547,57 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... thrive_opencl"
-	@echo "... cl_command.o"
-	@echo "... cl_command.i"
-	@echo "... cl_command.s"
-	@echo "... cl_context.o"
-	@echo "... cl_context.i"
-	@echo "... cl_context.s"
-	@echo "... cl_device.o"
-	@echo "... cl_device.i"
-	@echo "... cl_device.s"
-	@echo "... cl_ext.o"
-	@echo "... cl_ext.i"
-	@echo "... cl_ext.s"
-	@echo "... cl_icd.o"
-	@echo "... cl_icd.i"
-	@echo "... cl_icd.s"
-	@echo "... cl_platform.o"
-	@echo "... cl_platform.i"
-	@echo "... cl_platform.s"
+	@echo "... commandqueue/clCreateCommandQueue.o"
+	@echo "... commandqueue/clCreateCommandQueue.i"
+	@echo "... commandqueue/clCreateCommandQueue.s"
+	@echo "... commandqueue/clReleaseCommandQueue.o"
+	@echo "... commandqueue/clReleaseCommandQueue.i"
+	@echo "... commandqueue/clReleaseCommandQueue.s"
+	@echo "... context/clCreateContext.o"
+	@echo "... context/clCreateContext.i"
+	@echo "... context/clCreateContext.s"
+	@echo "... context/clReleaseContext.o"
+	@echo "... context/clReleaseContext.i"
+	@echo "... context/clReleaseContext.s"
+	@echo "... context/clRetainContext.o"
+	@echo "... context/clRetainContext.i"
+	@echo "... context/clRetainContext.s"
+	@echo "... device/clCreateSubDevices.o"
+	@echo "... device/clCreateSubDevices.i"
+	@echo "... device/clCreateSubDevices.s"
+	@echo "... device/clGetDeviceIDs.o"
+	@echo "... device/clGetDeviceIDs.i"
+	@echo "... device/clGetDeviceIDs.s"
+	@echo "... device/clGetDeviceInfo.o"
+	@echo "... device/clGetDeviceInfo.i"
+	@echo "... device/clGetDeviceInfo.s"
+	@echo "... device/clReleaseDevice.o"
+	@echo "... device/clReleaseDevice.i"
+	@echo "... device/clReleaseDevice.s"
+	@echo "... device/clRetainDevice.o"
+	@echo "... device/clRetainDevice.i"
+	@echo "... device/clRetainDevice.s"
+	@echo "... dfruntime/dfruntime.o"
+	@echo "... dfruntime/dfruntime.i"
+	@echo "... dfruntime/dfruntime.s"
+	@echo "... dfruntime/dynlib.o"
+	@echo "... dfruntime/dynlib.i"
+	@echo "... dfruntime/dynlib.s"
+	@echo "... icd/clGetExtensionFunctionAddress.o"
+	@echo "... icd/clGetExtensionFunctionAddress.i"
+	@echo "... icd/clGetExtensionFunctionAddress.s"
+	@echo "... icd/cliIcdDispatchTableCreate.o"
+	@echo "... icd/cliIcdDispatchTableCreate.i"
+	@echo "... icd/cliIcdDispatchTableCreate.s"
+	@echo "... platform/clGetPlatformIDs.o"
+	@echo "... platform/clGetPlatformIDs.i"
+	@echo "... platform/clGetPlatformIDs.s"
+	@echo "... platform/clGetPlatformInfo.o"
+	@echo "... platform/clGetPlatformInfo.i"
+	@echo "... platform/clGetPlatformInfo.s"
+	@echo "... platform/clIcdGetPlatformIDsKHR.o"
+	@echo "... platform/clIcdGetPlatformIDsKHR.i"
+	@echo "... platform/clIcdGetPlatformIDsKHR.s"
 .PHONY : help
 
 
